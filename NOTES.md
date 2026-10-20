@@ -226,10 +226,6 @@ Values in the feed: `"£50K per Annum"`, `"1K - 3K per Annum"`, `"$2 per Annum"`
 
 Two different jobs at the same company with the same title in different cities will be incorrectly merged. The correct key is `job_id`.
 
-
-
-
-
 ## Data Analysis — data/ (excluding golden)
 
 ### 1. jobs_raw.jsonl — 1,529 jobs
@@ -237,7 +233,7 @@ Two different jobs at the same company with the same title in different cities w
 HTTP status breakdown:
 
 | Status        | Count | %     |
-|---------------|-------|-------|
+| ------------- | ----- | ----- |
 | 200 OK        | 868   | 56.8% |
 | 403 Forbidden | 455   | 29.8% |
 | 410 Gone      | 129   | 8.4%  |
@@ -248,17 +244,17 @@ HTTP status breakdown:
 
 Field fill rates:
 
-| Field                 | Filled                    |
-|-----------------------|---------------------------|
-| scraped.title         | 100%                      |
-| scraped.company       | 100%                      |
-| scraped.location      | 72.5% (420 missing)       |
-| scraped.salary        | 0.8% (12 of 1,529)        |
-| page.title_tag        | 39.8%                     |
-| page.meta             | 38.8%                     |
-| page.structured_job   | 27.1%                     |
-| page.h1               | 16.0%                     |
-| page.visible_text     | 0% (empty in entire dataset) |
+| Field               | Filled                       |
+| ------------------- | ---------------------------- |
+| scraped.title       | 100%                         |
+| scraped.company     | 100%                         |
+| scraped.location    | 72.5% (420 missing)          |
+| scraped.salary      | 0.8% (12 of 1,529)           |
+| page.title_tag      | 39.8%                        |
+| page.meta           | 38.8%                        |
+| page.structured_job | 27.1%                        |
+| page.h1             | 16.0%                        |
+| page.visible_text   | 0% (empty in entire dataset) |
 
 **Critical finding:** `visible_text` is completely empty across the whole dataset. The company-matching rule from OUTPUT_FORMAT.json (search across page body text) cannot be applied — there is no data to search.
 
@@ -283,12 +279,12 @@ Field fill rates:
 
 ### 5. Signal intersection
 
-| Condition                          | Jobs         |
-|------------------------------------|--------------|
-| Company only                       | 1,049 (68.6%)|
-| Title only                         | 118 (7.7%)   |
-| Location only                      | 164 (10.7%)  |
-| All three (company + title + location) | 35 (2.3%) |
+| Condition                              | Jobs          |
+| -------------------------------------- | ------------- |
+| Company only                           | 1,049 (68.6%) |
+| Title only                             | 118 (7.7%)    |
+| Location only                          | 164 (10.7%)   |
+| All three (company + title + location) | 35 (2.3%)     |
 
 ### 6. labelled_sample.jsonl — 60 labelled jobs
 
@@ -313,27 +309,27 @@ OUTPUT                  2 jobs
 
 ### Signal correlation with the dataset
 
-| Dimension                                        | Matches    | % of 1,529 |
-|--------------------------------------------------|------------|------------|
-| Company (exact match)                            | **1,021**  | 66.8%      |
-| Location (token match against towns)             | **136**    | 8.9%       |
-| Title (word-match against profile)               | ~**160**   | ~10.5%     |
-| **Triple intersection (manual analysis)**        | **56**     | 3.7%       |
-| Of which false-geo (Liverpool NSW, Warrington PA…) | −6       |            |
-| **Real UK jobs that should match**               | **~48–50** |            |
-| **Worker found**                                 | **2**      | 0.13%      |
+| Dimension                                           | Matches           | % of 1,529 |
+| --------------------------------------------------- | ----------------- | ---------- |
+| Company (exact match)                               | **1,021**   | 66.8%      |
+| Location (token match against towns)                | **136**     | 8.9%       |
+| Title (word-match against profile)                  | ~**160**    | ~10.5%     |
+| **Triple intersection (manual analysis)**     | **56**      | 3.7%       |
+| Of which false-geo (Liverpool NSW, Warrington PA…) | −6               |            |
+| **Real UK jobs that should match**            | **~48–50** |            |
+| **Worker found**                              | **2**       | 0.13%      |
 
 ### Root cause: `resolve_job_town` only handles bare-city lookup
 
 Location format breakdown in the dataset:
 
-| Format                          | Count       | Worker handling                          |
-|---------------------------------|-------------|------------------------------------------|
-| `"City, United Kingdom"`        | 567 (37%)   | ❌ UNKNOWN_LOCATION                      |
-| Bare city (1–2 words)           | 459 (30%)   | ✅ only if in hardcoded dict             |
-| Empty string                    | 420 (27.5%) | ❌ UNKNOWN_LOCATION                      |
-| `"Hybrid - 2 days Warrington"`  | 1 (0.1%)    | ❌ UNKNOWN_LOCATION                      |
-| US/AU false positives           | 15 (1%)     | needs country filter                     |
+| Format                           | Count       | Worker handling              |
+| -------------------------------- | ----------- | ---------------------------- |
+| `"City, United Kingdom"`       | 567 (37%)   | ❌ UNKNOWN_LOCATION          |
+| Bare city (1–2 words)           | 459 (30%)   | ✅ only if in hardcoded dict |
+| Empty string                     | 420 (27.5%) | ❌ UNKNOWN_LOCATION          |
+| `"Hybrid - 2 days Warrington"` | 1 (0.1%)    | ❌ UNKNOWN_LOCATION          |
+| US/AU false positives            | 15 (1%)     | needs country filter         |
 
 Of the 567 jobs with `"City, United Kingdom"` format — **80 have a city from the profile** (Manchester, Birmingham, Liverpool, etc.) and all are lost because the resolver cannot strip the `, United Kingdom` suffix.
 
@@ -359,3 +355,79 @@ Only jobs with a **bare city name** (`Wrexham`, `Chester`, `Runcorn`) hit the ha
 ### Conclusion
 
 The worker **works** — architecture and contracts are correct. But `resolve_job_town` is an intentionally broken module (noted in CLAUDE.md): it uses exact-match against a tiny hardcoded dict, whereas the real requirement is parsing multi-format location strings. Fixing this module alone would raise output from 2 to ~48 jobs (~24×).
+
+## `normalise_job_rows` — 8 tests
+
+| Test | Reason for failure |
+| ---- | ------------------ |
+| `test_parse_salary_k_suffix` | `parse_salary("£50K per Annum")` → `int("50K per Annum")` → `ValueError` |
+| `test_parse_salary_range_with_k` | `parse_salary("1K - 3K per Annum")` → same error |
+| `test_parse_salary_real_feed_formats[£31K per Annum]` | K suffix, different amount |
+| `test_parse_salary_real_feed_formats[2 - 3 per Annum]` | Range without £ or K |
+| `test_parse_salary_real_feed_formats[15 - 17 per Annum]` | Range without currency symbols |
+| `test_parse_salary_real_feed_formats[$2 per Annum]` | Dollar sign instead of pound |
+| `test_parse_salary_real_feed_formats[00-14]` | Hyphenated format with no meaningful value |
+| `test_normalise_missing_scraped_has_sli_entry` | `except Exception: pass` — row is silently lost, nothing is written to the SLI log |
+
+**Root cause:** `parse_salary` does `int(str(value).replace("£","").replace(",",""))` — does not handle suffixes, ranges, or foreign currency symbols.
+
+---
+
+## `drop_duplicate_jobs` — 1 test
+
+| Test | Reason for failure |
+| ---- | ------------------ |
+| `test_dedup_different_job_ids_same_title_company_both_kept` | Key `title\|company` — two different jobs in different cities with the same title and company are merged into one |
+
+**Root cause:** `dedupe_key` should use `job_id`, not `title|company`.
+
+---
+
+## `resolve_job_town` — 11 tests
+
+| Test | Reason for failure |
+| ---- | ------------------ |
+| `test_resolve_location_with_country_suffix` | `"Birmingham, United Kingdom"` → `lookup_town` performs exact match, suffix not stripped (555 jobs) |
+| `test_resolve_location_with_gb_suffix` | `"Bolton, GB"` — same, country-code suffix (12 jobs) |
+| `test_resolve_crewe_not_in_towns` | `"Crewe"` — real city, but not in the `TOWNS` dictionary |
+| `test_resolve_location_placeholder_fallback` | `"2 Locations"` — placeholder, `structured_job.locations` is never checked (337 jobs) |
+| `test_resolve_three_part_location[Derby, Derbyshire, ...]` | Three-part format: suffix + county not stripped |
+| `test_resolve_three_part_location[Chester, Cheshire, ...]` | Same |
+| `test_resolve_three_part_location[Bradford, West Yorkshire, ...]` | Same |
+| `test_resolve_three_part_location[Birmingham, Warwickshire, ...]` | Same |
+| `test_resolve_three_part_location[Glasgow, Glasgow City, ...]` | Same |
+| `test_resolve_hybrid_remote_formats[Hybrid - 2 days Warrington]` | Embedded city not extracted from hybrid string |
+| `test_resolve_hybrid_remote_formats[Remote - UK]` | Remote location type not handled at all |
+
+**Root cause:** `lookup_town` only does `TOWNS.get(text.strip().lower())` — a single exact match with no format parsing.
+
+---
+
+## `match_jobs` — 14 tests
+
+| Test | Reason for failure |
+| ---- | ------------------ |
+| `test_matched_titles_case_insensitive` | `"controls engineer" in "Controls Engineer"` → `False` |
+| `test_matched_titles_lowercase_profile_title` | `"cnc miller" in "CNC Miller"` → `False` |
+| `test_matched_titles_non_adjacent_words` | `"Quality Engineer" in "Quality and Warranty Engineer"` → `False` |
+| `test_matched_titles_case_real_feed[Business Development Manager]` | Profile: `"business development manager"`, feed: `"Business Development Manager"` |
+| `test_matched_titles_case_real_feed[Business Development Manager - North]` | Same + suffix |
+| `test_matched_titles_case_real_feed[CNC Turner Setter/Programmer ...]` | Profile: `"cnc turner"`, feed: `"CNC Turner Setter/..."` |
+| `test_matched_titles_word_order_real_feed[Engineer - Electrical ...]` | Words `"Electrical"` and `"Engineer"` are present but not adjacent |
+| `test_matched_titles_word_order_real_feed[Sr. Applications Engineer - Electrical]` | Same |
+| `test_matched_titles_word_order_real_feed[PSV / HGV Engineer ... / Electrical Engineer]` | Same |
+| `test_matched_titles_word_order_real_feed[PSV / HGV Engineer ... / Mechanical Engineer]` | Same |
+| `test_matched_titles_word_order_real_feed[Manufacturing Services Technician ...]` | `"Manufacturing Technician"` — words not adjacent |
+| `test_matched_titles_word_order_real_feed[Principal Engineer - Product Safety]` | `"Product Engineer"` — words not adjacent |
+| `test_matched_titles_word_order_real_feed[Highways Engineer – Design ...]` | `"Design Engineer"` — words not adjacent |
+| `test_match_jobs_company_legal_suffix_stripped` | `"Cobalt Zephyr Holdings"` ≠ `"Cobalt Zephyr"` — exact string comparison |
+
+**Root cause:** `matched_titles` does `t in job_title` — case-sensitive substring, but the spec requires that all words of the profile title appear in the job title in any order.
+
+---
+
+## `test_labelled_sample` — 1 test
+
+| Test | Reason for failure |
+| ---- | ------------------ |
+| `test_v1_pipeline_recall_above_50_percent` | v1 finds **0 of 11** YES jobs: 10 rejected in `resolve_job_town` (UNKNOWN_LOCATION), 1 (J685745) in `match_jobs` (NO_TITLE_MATCH). Recall = 0% < 50%. |

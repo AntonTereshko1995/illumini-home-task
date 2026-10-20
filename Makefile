@@ -2,7 +2,7 @@ PYTHON ?= python3
 VENV := .venv
 BIN := $(VENV)/bin
 
-.PHONY: dev run test
+.PHONY: dev run run-v2 test
 
 dev:
 	$(PYTHON) -m venv $(VENV)
@@ -11,6 +11,9 @@ dev:
 
 run:
 	$(BIN)/python -m v1.workers.job_matcher.handler
+
+run-v2:
+	$(BIN)/python -m v2.workers.job_matcher.handler
 
 test:
 	$(BIN)/python -m pytest -q

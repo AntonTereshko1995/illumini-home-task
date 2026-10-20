@@ -1,0 +1,1637 @@
+{
+  "profile_id": "a",
+  "companies": [
+    {
+      "name": "Aire Calder",
+      "industry": null
+    },
+    {
+      "name": "Aire Driftwood",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Aire Foxhall",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Aire Northwind",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Aire Oakfield",
+      "industry": null
+    },
+    {
+      "name": "Aire Viaduct",
+      "industry": null
+    },
+    {
+      "name": "Aire Wharfedale Engineering",
+      "industry": "Civil Engineering"
+    },
+    {
+      "name": "Ancoats Castlefield",
+      "industry": null
+    },
+    {
+      "name": "Ancoats Cobalt",
+      "industry": "Construction"
+    },
+    {
+      "name": "Ancoats Greystone",
+      "industry": "Environmental Engineering"
+    },
+    {
+      "name": "Ancoats Inkwell",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Ancoats Lowther",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Ancoats Mersey",
+      "industry": null
+    },
+    {
+      "name": "Ancoats Northwind",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Ancoats Riverside Technology Ltd.",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Ancoats Saltaire Engineering",
+      "industry": null
+    },
+    {
+      "name": "Ancoats Upland",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Ashworth Castlefield Group",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Ashworth Driftwood Systems",
+      "industry": null
+    },
+    {
+      "name": "Ashworth Elmstone",
+      "industry": null
+    },
+    {
+      "name": "Ashworth Fellgate Engineering",
+      "industry": null
+    },
+    {
+      "name": "Ashworth Foxhall",
+      "industry": null
+    },
+    {
+      "name": "Ashworth Tidewater Technologies",
+      "industry": null
+    },
+    {
+      "name": "Ashworth Yarrow UK",
+      "industry": "Hospitality"
+    },
+    {
+      "name": "Beacon Aire",
+      "industry": null
+    },
+    {
+      "name": "Beacon Elmstone",
+      "industry": "Civil Engineering"
+    },
+    {
+      "name": "Beacon Kestrel Group",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Beacon Pennine Solutions",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Beacon Upland",
+      "industry": null
+    },
+    {
+      "name": "Brightwater Ancoats",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Brightwater Driftwood",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Brightwater Fellgate Group",
+      "industry": null
+    },
+    {
+      "name": "Brightwater Granary",
+      "industry": "Construction"
+    },
+    {
+      "name": "Brightwater Halden",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Brightwater Hollins",
+      "industry": null
+    },
+    {
+      "name": "Brightwater Lowther",
+      "industry": null
+    },
+    {
+      "name": "Brightwater Netherby",
+      "industry": null
+    },
+    {
+      "name": "Brightwater Northwind",
+      "industry": null
+    },
+    {
+      "name": "Brightwater Thornbury The Group",
+      "industry": "Chemical"
+    },
+    {
+      "name": "Brightwater Zephyr",
+      "industry": "Building Material"
+    },
+    {
+      "name": "Brindley Oakfield",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Brindley Quayside",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Calder Ashworth",
+      "industry": null
+    },
+    {
+      "name": "Calder Delta North International",
+      "industry": null
+    },
+    {
+      "name": "Calder Elmstone Engineering",
+      "industry": null
+    },
+    {
+      "name": "Calder Halden",
+      "industry": "Civil Engineering"
+    },
+    {
+      "name": "Calder Harbourline",
+      "industry": null
+    },
+    {
+      "name": "Calder Inkwell Group",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Calder Ironbridge Group",
+      "industry": null
+    },
+    {
+      "name": "Calder Millrace",
+      "industry": "Construction"
+    },
+    {
+      "name": "Calder Netherby Technologies",
+      "industry": "Chemical"
+    },
+    {
+      "name": "Calder Oakfield Group",
+      "industry": null
+    },
+    {
+      "name": "Calder Thornbury",
+      "industry": "Construction"
+    },
+    {
+      "name": "Castlefield Elmstone",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Castlefield Kingsway ENGINEERING LTD",
+      "industry": "Building Material"
+    },
+    {
+      "name": "Castlefield Larkspur",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Castlefield Mersey",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Castlefield Millrace Systems",
+      "industry": null
+    },
+    {
+      "name": "Castlefield Pennine",
+      "industry": null
+    },
+    {
+      "name": "Castlefield Riverside",
+      "industry": null
+    },
+    {
+      "name": "Castlefield Stonebridge",
+      "industry": "Chemical Engineering"
+    },
+    {
+      "name": "Castlefield Upland",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Cobalt Calder",
+      "industry": "Industrial Automation"
+    },
+    {
+      "name": "Cobalt Irwell",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Cobalt Kestrel",
+      "industry": null
+    },
+    {
+      "name": "Cobalt Upland Systems",
+      "industry": null
+    },
+    {
+      "name": "Cobalt Zephyr",
+      "industry": null
+    },
+    {
+      "name": "Copperleaf Aire Group",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Copperleaf Brightwater",
+      "industry": null
+    },
+    {
+      "name": "Copperleaf Calder",
+      "industry": "Consulting"
+    },
+    {
+      "name": "Copperleaf Fellgate",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Copperleaf Greystone",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Copperleaf Hollins",
+      "industry": null
+    },
+    {
+      "name": "Copperleaf Ironbridge Engineering Services",
+      "industry": null
+    },
+    {
+      "name": "Copperleaf Irwell UK",
+      "industry": null
+    },
+    {
+      "name": "Copperleaf Larkspur",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Copperleaf Larkspur UK",
+      "industry": null
+    },
+    {
+      "name": "Copperleaf Lowther",
+      "industry": "Industrial Design"
+    },
+    {
+      "name": "Copperleaf Netherby Group",
+      "industry": null
+    },
+    {
+      "name": "Copperleaf Redrose Engineering",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Delta North Beacon",
+      "industry": null
+    },
+    {
+      "name": "Delta North Driftwood",
+      "industry": null
+    },
+    {
+      "name": "Delta North Halden",
+      "industry": null
+    },
+    {
+      "name": "Delta North Lowther",
+      "industry": null
+    },
+    {
+      "name": "Delta North Oakfield",
+      "industry": null
+    },
+    {
+      "name": "Delta North Saltaire Engineering",
+      "industry": null
+    },
+    {
+      "name": "Delta North Tidewater",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Delta North Whiterose",
+      "industry": "Architecture"
+    },
+    {
+      "name": "Driftwood Brightwater",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Driftwood Cobalt Services",
+      "industry": null
+    },
+    {
+      "name": "Driftwood Copperleaf",
+      "industry": null
+    },
+    {
+      "name": "Driftwood Delta North",
+      "industry": null
+    },
+    {
+      "name": "Driftwood Elmstone",
+      "industry": null
+    },
+    {
+      "name": "Driftwood Ember Ltd",
+      "industry": null
+    },
+    {
+      "name": "Driftwood Granary",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Driftwood Hollins",
+      "industry": null
+    },
+    {
+      "name": "Driftwood Quayside",
+      "industry": null
+    },
+    {
+      "name": "Driftwood Ribble",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Elmstone Aire",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Elmstone Castlefield",
+      "industry": null
+    },
+    {
+      "name": "Elmstone Copperleaf",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Elmstone Delta North",
+      "industry": null
+    },
+    {
+      "name": "Elmstone Driftwood",
+      "industry": null
+    },
+    {
+      "name": "Elmstone Ember",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Elmstone Irwell Solutions",
+      "industry": "Industrial"
+    },
+    {
+      "name": "Elmstone Kestrel",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Elmstone Ribble",
+      "industry": "Battery"
+    },
+    {
+      "name": "Elmstone Tidewater",
+      "industry": null
+    },
+    {
+      "name": "Elmstone Viaduct Technologies",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Elmstone Whiterose",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Elmstone Zephyr Engineering",
+      "industry": "Audio/Visual Equipment"
+    },
+    {
+      "name": "Ember Copperleaf",
+      "industry": null
+    },
+    {
+      "name": "Ember Northwind",
+      "industry": null
+    },
+    {
+      "name": "Ember Oakfield The Company",
+      "industry": null
+    },
+    {
+      "name": "Fellgate Brindley UK Ltd",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Fellgate Calder International",
+      "industry": null
+    },
+    {
+      "name": "Fellgate Cobalt",
+      "industry": "3D Printing"
+    },
+    {
+      "name": "Fellgate Ember Holdings",
+      "industry": "Industrial"
+    },
+    {
+      "name": "Fellgate Greystone Systems",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Fellgate Irwell",
+      "industry": null
+    },
+    {
+      "name": "Fellgate Kestrel Engineering Group",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Fellgate Redrose",
+      "industry": null
+    },
+    {
+      "name": "Fellgate Wharfedale",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Fellgate Whiterose",
+      "industry": null
+    },
+    {
+      "name": "Foxhall Brindley",
+      "industry": null
+    },
+    {
+      "name": "Foxhall Castlefield",
+      "industry": null
+    },
+    {
+      "name": "Foxhall Greystone",
+      "industry": null
+    },
+    {
+      "name": "Foxhall Hollins",
+      "industry": null
+    },
+    {
+      "name": "Foxhall Ironbridge",
+      "industry": null
+    },
+    {
+      "name": "Foxhall Larkspur",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Foxhall Mersey",
+      "industry": "Chemical"
+    },
+    {
+      "name": "Foxhall Millrace",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Foxhall Redrose",
+      "industry": null
+    },
+    {
+      "name": "Foxhall Thornbury Group Ltd",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Foxhall Wharfedale",
+      "industry": null
+    },
+    {
+      "name": "Foxhall Whiterose",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Granary Aire",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Granary Calder",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Granary Greystone",
+      "industry": "Chemical"
+    },
+    {
+      "name": "Granary Harbourline Technologies",
+      "industry": null
+    },
+    {
+      "name": "Granary Inkwell",
+      "industry": "Hardware"
+    },
+    {
+      "name": "Granary Irwell",
+      "industry": null
+    },
+    {
+      "name": "Granary Netherby Engineering",
+      "industry": null
+    },
+    {
+      "name": "Granary Tidewater",
+      "industry": "Advanced Materials"
+    },
+    {
+      "name": "Granary Whiterose",
+      "industry": null
+    },
+    {
+      "name": "Granary Yarrow Group",
+      "industry": null
+    },
+    {
+      "name": "Greystone Ashworth Engineering",
+      "industry": null
+    },
+    {
+      "name": "Greystone Delta North",
+      "industry": null
+    },
+    {
+      "name": "Greystone Elmstone",
+      "industry": null
+    },
+    {
+      "name": "Greystone Harbourline Technologies",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Greystone Inkwell",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Greystone Ironbridge International Services",
+      "industry": null
+    },
+    {
+      "name": "Greystone Pennine",
+      "industry": null
+    },
+    {
+      "name": "Greystone Wharfedale",
+      "industry": null
+    },
+    {
+      "name": "Halden Aire The Group",
+      "industry": "Energy"
+    },
+    {
+      "name": "Halden Brindley",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Halden Castlefield UK",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Halden Delta North",
+      "industry": "Analytics"
+    },
+    {
+      "name": "Halden Driftwood",
+      "industry": null
+    },
+    {
+      "name": "Halden Irwell",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Halden Kestrel",
+      "industry": null
+    },
+    {
+      "name": "Halden Mersey",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Halden Thornbury",
+      "industry": "Autonomous Vehicles"
+    },
+    {
+      "name": "Halden Tidewater Systems",
+      "industry": null
+    },
+    {
+      "name": "Harbourline Halden",
+      "industry": null
+    },
+    {
+      "name": "Harbourline Moorside",
+      "industry": "Building Material"
+    },
+    {
+      "name": "Harbourline Saltaire",
+      "industry": null
+    },
+    {
+      "name": "Hollins Brightwater",
+      "industry": "Health Care"
+    },
+    {
+      "name": "Hollins Delta North Group",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Hollins Foxhall Systems Ltd",
+      "industry": null
+    },
+    {
+      "name": "Hollins Harbourline",
+      "industry": null
+    },
+    {
+      "name": "Hollins Inkwell UK",
+      "industry": null
+    },
+    {
+      "name": "Hollins Millrace",
+      "industry": "Commercial"
+    },
+    {
+      "name": "Hollins Oakfield",
+      "industry": null
+    },
+    {
+      "name": "Hollins Saltaire",
+      "industry": null
+    },
+    {
+      "name": "Hollins Upland Ltd",
+      "industry": null
+    },
+    {
+      "name": "Inkwell Copperleaf Group",
+      "industry": null
+    },
+    {
+      "name": "Inkwell Driftwood",
+      "industry": null
+    },
+    {
+      "name": "Inkwell Ironbridge",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Inkwell Juniper",
+      "industry": null
+    },
+    {
+      "name": "Inkwell Larkspur Systems",
+      "industry": "Building Material"
+    },
+    {
+      "name": "Inkwell Moorside Technology",
+      "industry": null
+    },
+    {
+      "name": "Inkwell Thornbury",
+      "industry": null
+    },
+    {
+      "name": "Ironbridge Delta North",
+      "industry": "Industrial Automation"
+    },
+    {
+      "name": "Ironbridge Ember",
+      "industry": null
+    },
+    {
+      "name": "Ironbridge Granary",
+      "industry": null
+    },
+    {
+      "name": "Ironbridge Kingsway UK",
+      "industry": null
+    },
+    {
+      "name": "Ironbridge Larkspur",
+      "industry": null
+    },
+    {
+      "name": "Ironbridge Lowther",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Ironbridge Mersey",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Ironbridge Netherby",
+      "industry": "Construction"
+    },
+    {
+      "name": "Ironbridge Saltaire",
+      "industry": null
+    },
+    {
+      "name": "Irwell Cobalt",
+      "industry": "Industrial"
+    },
+    {
+      "name": "Irwell Driftwood",
+      "industry": "CAD"
+    },
+    {
+      "name": "Irwell Elmstone",
+      "industry": null
+    },
+    {
+      "name": "Irwell Foxhall",
+      "industry": null
+    },
+    {
+      "name": "Irwell Inkwell",
+      "industry": null
+    },
+    {
+      "name": "Irwell Juniper International",
+      "industry": null
+    },
+    {
+      "name": "Irwell Kestrel Group",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Irwell Redrose",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Irwell Upland",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Irwell Yarrow",
+      "industry": "Chemical"
+    },
+    {
+      "name": "Juniper Elmstone",
+      "industry": "Heating, Ventilation, and Air Conditioning (HVAC)"
+    },
+    {
+      "name": "Juniper Halden",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Juniper Inkwell Systems",
+      "industry": null
+    },
+    {
+      "name": "Juniper Moorside Engineering",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Juniper Pennine Group",
+      "industry": "Industrial Design"
+    },
+    {
+      "name": "Juniper Thornbury",
+      "industry": null
+    },
+    {
+      "name": "Juniper Upland Technology",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Kestrel Ashworth",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Kestrel Copperleaf",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Kestrel Ember Group",
+      "industry": null
+    },
+    {
+      "name": "Kestrel Halden Ltd",
+      "industry": "Commercial"
+    },
+    {
+      "name": "Kestrel Irwell",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Kestrel Larkspur",
+      "industry": null
+    },
+    {
+      "name": "Kestrel Moorside",
+      "industry": null
+    },
+    {
+      "name": "Kestrel Saltaire Services",
+      "industry": null
+    },
+    {
+      "name": "Kestrel Viaduct",
+      "industry": null
+    },
+    {
+      "name": "Kestrel Whiterose",
+      "industry": "Civil Engineering"
+    },
+    {
+      "name": "Kestrel Yarrow",
+      "industry": null
+    },
+    {
+      "name": "Kingsway Fellgate",
+      "industry": null
+    },
+    {
+      "name": "Kingsway Inkwell",
+      "industry": null
+    },
+    {
+      "name": "Kingsway Irwell Group",
+      "industry": null
+    },
+    {
+      "name": "Kingsway Kestrel Group",
+      "industry": "Advanced Materials"
+    },
+    {
+      "name": "Kingsway Larkspur",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Kingsway Northwind",
+      "industry": null
+    },
+    {
+      "name": "Kingsway Pennine",
+      "industry": null
+    },
+    {
+      "name": "Kingsway Ribble",
+      "industry": "Civil Engineering"
+    },
+    {
+      "name": "Kingsway Riverside",
+      "industry": null
+    },
+    {
+      "name": "Larkspur Ancoats Engineering Ltd",
+      "industry": null
+    },
+    {
+      "name": "Larkspur Elmstone Engineering",
+      "industry": null
+    },
+    {
+      "name": "Larkspur Granary",
+      "industry": null
+    },
+    {
+      "name": "Larkspur Hollins Engineering",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Larkspur Irwell",
+      "industry": null
+    },
+    {
+      "name": "Larkspur Whiterose",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Lowther Ancoats LIMITED",
+      "industry": "Advanced Materials"
+    },
+    {
+      "name": "Lowther Brindley",
+      "industry": null
+    },
+    {
+      "name": "Lowther Driftwood",
+      "industry": "Customer Service"
+    },
+    {
+      "name": "Lowther Greystone International",
+      "industry": "Asset Management"
+    },
+    {
+      "name": "Lowther Halden Group",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Lowther Ironbridge",
+      "industry": "Commercial"
+    },
+    {
+      "name": "Lowther Juniper UK",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Lowther Millrace",
+      "industry": null
+    },
+    {
+      "name": "Lowther Moorside",
+      "industry": "Construction"
+    },
+    {
+      "name": "Lowther Ribble Technologies",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Lowther Viaduct Technologies",
+      "industry": null
+    },
+    {
+      "name": "Lowther Yarrow",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Mersey Beacon International",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Mersey Brightwater",
+      "industry": "Database"
+    },
+    {
+      "name": "Mersey Brindley",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Mersey Delta North Group Holdings",
+      "industry": "Industrial"
+    },
+    {
+      "name": "Mersey Fellgate Engineering",
+      "industry": null
+    },
+    {
+      "name": "Mersey Irwell",
+      "industry": null
+    },
+    {
+      "name": "Mersey Kestrel International",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Mersey Moorside",
+      "industry": null
+    },
+    {
+      "name": "Mersey Oakfield UK",
+      "industry": null
+    },
+    {
+      "name": "Mersey Redrose",
+      "industry": "Industrial Automation"
+    },
+    {
+      "name": "Mersey Saltaire",
+      "industry": null
+    },
+    {
+      "name": "Mersey Yarrow Technologies",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Mersey Zephyr Group",
+      "industry": null
+    },
+    {
+      "name": "Millrace Ashworth Engineering",
+      "industry": null
+    },
+    {
+      "name": "Millrace Castlefield",
+      "industry": null
+    },
+    {
+      "name": "Millrace Copperleaf",
+      "industry": null
+    },
+    {
+      "name": "Millrace Hollins",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Millrace Saltaire Ltd",
+      "industry": null
+    },
+    {
+      "name": "Millrace Whiterose",
+      "industry": null
+    },
+    {
+      "name": "Moorside Copperleaf",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Moorside Greystone The Group",
+      "industry": null
+    },
+    {
+      "name": "Moorside Kingsway",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Moorside Netherby",
+      "industry": null
+    },
+    {
+      "name": "Moorside Oakfield",
+      "industry": "Consumer Goods"
+    },
+    {
+      "name": "Moorside Wharfedale",
+      "industry": null
+    },
+    {
+      "name": "Netherby Ashworth Services",
+      "industry": null
+    },
+    {
+      "name": "Netherby Beacon LIMITED",
+      "industry": "Consumer Goods"
+    },
+    {
+      "name": "Netherby Brindley",
+      "industry": "Customer Service"
+    },
+    {
+      "name": "Netherby Calder Engineering",
+      "industry": null
+    },
+    {
+      "name": "Netherby Fellgate",
+      "industry": null
+    },
+    {
+      "name": "Netherby Halden",
+      "industry": null
+    },
+    {
+      "name": "Netherby Kestrel Group",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Netherby Lowther",
+      "industry": null
+    },
+    {
+      "name": "Netherby Whiterose",
+      "industry": null
+    },
+    {
+      "name": "Northwind Delta North",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Northwind Driftwood",
+      "industry": "Building Maintenance"
+    },
+    {
+      "name": "Northwind Foxhall",
+      "industry": "Chemical"
+    },
+    {
+      "name": "Northwind Netherby",
+      "industry": null
+    },
+    {
+      "name": "Oakfield Calder",
+      "industry": "Industrial Design"
+    },
+    {
+      "name": "Oakfield Driftwood Engineering",
+      "industry": null
+    },
+    {
+      "name": "Oakfield Elmstone LIMITED",
+      "industry": "Advanced Materials"
+    },
+    {
+      "name": "Oakfield Ember",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Oakfield Foxhall",
+      "industry": "Consulting"
+    },
+    {
+      "name": "Oakfield Halden Group",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Oakfield Irwell",
+      "industry": null
+    },
+    {
+      "name": "Oakfield Lowther",
+      "industry": "Industrial Automation"
+    },
+    {
+      "name": "Pennine Elmstone",
+      "industry": "Furniture"
+    },
+    {
+      "name": "Pennine Irwell",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Pennine Kingsway Ltd.",
+      "industry": null
+    },
+    {
+      "name": "Pennine Lowther Solutions",
+      "industry": null
+    },
+    {
+      "name": "Pennine Mersey",
+      "industry": null
+    },
+    {
+      "name": "Quayside Ashworth Services International Group",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Quayside Beacon",
+      "industry": null
+    },
+    {
+      "name": "Quayside Calder",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Quayside Cobalt International Ltd.",
+      "industry": null
+    },
+    {
+      "name": "Quayside Northwind Group",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Quayside Ribble",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Redrose Ancoats The",
+      "industry": null
+    },
+    {
+      "name": "Redrose Copperleaf Systems",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Redrose Harbourline",
+      "industry": null
+    },
+    {
+      "name": "Redrose Mersey Engineering",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Redrose Stonebridge",
+      "industry": "Industrial"
+    },
+    {
+      "name": "Ribble Granary Engineering",
+      "industry": null
+    },
+    {
+      "name": "Ribble Riverside",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Ribble Wharfedale",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Riverside Brindley",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Riverside Driftwood",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Riverside Lowther",
+      "industry": null
+    },
+    {
+      "name": "Riverside Saltaire",
+      "industry": "Construction"
+    },
+    {
+      "name": "Saltaire Brindley",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Saltaire Calder",
+      "industry": null
+    },
+    {
+      "name": "Saltaire Granary Engineering",
+      "industry": null
+    },
+    {
+      "name": "Saltaire Ironbridge",
+      "industry": null
+    },
+    {
+      "name": "Saltaire Juniper",
+      "industry": null
+    },
+    {
+      "name": "Saltaire Kestrel",
+      "industry": null
+    },
+    {
+      "name": "Saltaire Moorside Engineering",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Saltaire Northwind Engineering",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Saltaire Pennine ltd",
+      "industry": null
+    },
+    {
+      "name": "Saltaire Redrose",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Saltaire Ribble",
+      "industry": "Chemical Engineering"
+    },
+    {
+      "name": "Saltaire Stonebridge",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Saltaire Thornbury",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Stonebridge Ancoats",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Stonebridge Cobalt",
+      "industry": null
+    },
+    {
+      "name": "Stonebridge Delta North",
+      "industry": null
+    },
+    {
+      "name": "Stonebridge Elmstone",
+      "industry": "Civil Engineering"
+    },
+    {
+      "name": "Stonebridge Ember",
+      "industry": null
+    },
+    {
+      "name": "Stonebridge Juniper",
+      "industry": "Electrical Distribution"
+    },
+    {
+      "name": "Stonebridge Kestrel",
+      "industry": null
+    },
+    {
+      "name": "Stonebridge Kingsway",
+      "industry": null
+    },
+    {
+      "name": "Stonebridge Larkspur",
+      "industry": null
+    },
+    {
+      "name": "Stonebridge Millrace",
+      "industry": "Heating, Ventilation, and Air Conditioning (HVAC)"
+    },
+    {
+      "name": "Stonebridge Northwind Services",
+      "industry": null
+    },
+    {
+      "name": "Stonebridge Wharfedale",
+      "industry": "Industrial Engineering"
+    },
+    {
+      "name": "Thornbury Cobalt Engineering",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Thornbury Granary",
+      "industry": null
+    },
+    {
+      "name": "Thornbury Hollins",
+      "industry": "Architecture"
+    },
+    {
+      "name": "Thornbury Inkwell",
+      "industry": null
+    },
+    {
+      "name": "Tidewater Ashworth",
+      "industry": null
+    },
+    {
+      "name": "Tidewater Beacon UK",
+      "industry": null
+    },
+    {
+      "name": "Tidewater Driftwood",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Tidewater Elmstone",
+      "industry": null
+    },
+    {
+      "name": "Tidewater Fellgate Services Ltd",
+      "industry": "Civil Engineering"
+    },
+    {
+      "name": "Tidewater Foxhall",
+      "industry": null
+    },
+    {
+      "name": "Tidewater Harbourline",
+      "industry": null
+    },
+    {
+      "name": "Tidewater Juniper Engineering",
+      "industry": null
+    },
+    {
+      "name": "Tidewater Lowther",
+      "industry": null
+    },
+    {
+      "name": "Tidewater Netherby International",
+      "industry": "Consumer Electronics"
+    },
+    {
+      "name": "Tidewater Oakfield",
+      "industry": null
+    },
+    {
+      "name": "Tidewater Quayside",
+      "industry": null
+    },
+    {
+      "name": "Upland Aire",
+      "industry": null
+    },
+    {
+      "name": "Upland Brightwater",
+      "industry": null
+    },
+    {
+      "name": "Upland Calder",
+      "industry": null
+    },
+    {
+      "name": "Upland Copperleaf Solutions",
+      "industry": null
+    },
+    {
+      "name": "Upland Larkspur",
+      "industry": null
+    },
+    {
+      "name": "Upland Millrace",
+      "industry": null
+    },
+    {
+      "name": "Upland Moorside Group",
+      "industry": "Industrial"
+    },
+    {
+      "name": "Upland Netherby",
+      "industry": null
+    },
+    {
+      "name": "Upland Northwind",
+      "industry": null
+    },
+    {
+      "name": "Upland Oakfield",
+      "industry": null
+    },
+    {
+      "name": "Upland Redrose UK",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Upland Thornbury (Holdings)",
+      "industry": null
+    },
+    {
+      "name": "Viaduct Driftwood Group",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Viaduct Fellgate",
+      "industry": null
+    },
+    {
+      "name": "Viaduct Granary",
+      "industry": "Civil Engineering"
+    },
+    {
+      "name": "Viaduct Halden",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Viaduct Larkspur Solutions",
+      "industry": "Foundries"
+    },
+    {
+      "name": "Viaduct Thornbury Systems",
+      "industry": null
+    },
+    {
+      "name": "Wharfedale Ashworth",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Wharfedale Castlefield",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Wharfedale Larkspur GmbH",
+      "industry": "Automotive"
+    },
+    {
+      "name": "Wharfedale Millrace",
+      "industry": null
+    },
+    {
+      "name": "Wharfedale Netherby Engineering",
+      "industry": null
+    },
+    {
+      "name": "Wharfedale Northwind Co. Ltd",
+      "industry": null
+    },
+    {
+      "name": "Wharfedale Pennine",
+      "industry": "Industrial"
+    },
+    {
+      "name": "Wharfedale Riverside",
+      "industry": null
+    },
+    {
+      "name": "Wharfedale Stonebridge Engineering",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Wharfedale Thornbury Engineering",
+      "industry": null
+    },
+    {
+      "name": "Wharfedale Tidewater",
+      "industry": null
+    },
+    {
+      "name": "Wharfedale Upland",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Wharfedale Viaduct UK",
+      "industry": "Industrial"
+    },
+    {
+      "name": "Wharfedale Yarrow",
+      "industry": "Home Services"
+    },
+    {
+      "name": "Whiterose Beacon Systems",
+      "industry": null
+    },
+    {
+      "name": "Whiterose Brindley Services",
+      "industry": null
+    },
+    {
+      "name": "Whiterose Kestrel Engineering Services",
+      "industry": null
+    },
+    {
+      "name": "Whiterose Kingsway Holdings Limited",
+      "industry": null
+    },
+    {
+      "name": "Whiterose Millrace",
+      "industry": null
+    },
+    {
+      "name": "Whiterose Quayside Engineering",
+      "industry": "Aerospace"
+    },
+    {
+      "name": "Whiterose Wharfedale",
+      "industry": null
+    },
+    {
+      "name": "Yarrow Aire UK Group",
+      "industry": null
+    },
+    {
+      "name": "Yarrow Brightwater",
+      "industry": "CAD"
+    },
+    {
+      "name": "Yarrow Castlefield",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Yarrow Cobalt",
+      "industry": null
+    },
+    {
+      "name": "Yarrow Halden",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "name": "Yarrow Harbourline",
+      "industry": "Electronics"
+    },
+    {
+      "name": "Yarrow Hollins",
+      "industry": "Air Transportation"
+    },
+    {
+      "name": "Yarrow Irwell",
+      "industry": null
+    },
+    {
+      "name": "Zephyr Cobalt Company",
+      "industry": "Civil Engineering"
+    },
+    {
+      "name": "Zephyr Driftwood Services",
+      "industry": null
+    },
+    {
+      "name": "Zephyr Millrace",
+      "industry": null
+    },
+    {
+      "name": "Zephyr Viaduct UK",
+      "industry": "Aerospace"
+    }
+  ]
+}

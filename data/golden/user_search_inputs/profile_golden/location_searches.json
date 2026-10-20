@@ -1,0 +1,22 @@
+{
+  "profile_id": "golden",
+  "locations": [
+    {
+      "name": "Warrington",
+      "type": "sub_region",
+      "includes": [
+        "Warrington",
+        "Runcorn"
+      ],
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Liverpool",
+      "type": "city",
+      "includes": [
+        "Liverpool"
+      ],
+      "country": "United Kingdom"
+    }
+  ]
+}

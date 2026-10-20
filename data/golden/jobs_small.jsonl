@@ -1,0 +1,4 @@
+{"job_id": "G000001", "scraped": {"title": "Senior Controls Engineer", "company": "Golden Fixture Ltd", "location": "Warrington", "salary": null}, "source_url": "https://golden.example/jobs/1", "page": {"http_status": 200}}
+{"job_id": "G000002", "scraped": {"title": "Controls Engineer", "company": "Golden Fixture Ltd", "location": "Liverpool", "salary": null}, "source_url": "https://golden.example/jobs/2", "page": {"http_status": 200}}
+{"job_id": "G000003", "scraped": {"title": "Controls Engineer", "company": "Not Listed plc", "location": "Liverpool", "salary": null}, "source_url": "https://golden.example/jobs/3", "page": {"http_status": 200}}
+{"job_id": "G000004", "scraped": {"title": "Accountant", "company": "Golden Fixture Ltd", "location": "Warrington", "salary": null}, "source_url": "https://golden.example/jobs/4", "page": {"http_status": 200}}

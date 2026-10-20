@@ -1,0 +1,193 @@
+{
+  "profile_id": "a",
+  "locations": [
+    {
+      "name": "West Midlands",
+      "type": "sub_region",
+      "includes": [
+        "Birmingham",
+        "Coventry",
+        "Wolverhampton"
+      ],
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Manchester",
+      "type": "city",
+      "includes": [
+        "Manchester"
+      ],
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Wirral",
+      "type": "city",
+      "includes": [],
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Skelmersdale",
+      "type": "sub_region",
+      "includes": [
+        "Skelmersdale",
+        "Wigan",
+        "Ormskirk",
+        "Prescot",
+        "St Helens",
+        "Rainhill",
+        "Rainford",
+        "Upholland",
+        "Burscough",
+        "Crosby",
+        "Formby",
+        "Southport"
+      ],
+      "country": "United Kingdom"
+    },
+    {
+      "name": "North Wales",
+      "type": "sub_region",
+      "includes": [
+        "Bangor",
+        "Wrexham",
+        "Caernarfon",
+        "Conwy",
+        "Llandudno",
+        "Colwyn Bay",
+        "Rhyl",
+        "Prestatyn",
+        "Aberystwyth",
+        "Dolgellau",
+        "Porthmadog",
+        "Caerphilly",
+        "Merthyr Tydfil",
+        "Pontypridd"
+      ],
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Liverpool",
+      "type": "city",
+      "includes": [
+        "Liverpool"
+      ],
+      "country": "United Kingdom"
+    },
+    {
+      "name": "M62 Corridor",
+      "type": "sub_region",
+      "includes": [
+        "Manchester",
+        "Liverpool",
+        "Salford",
+        "Stockport",
+        "Wigan",
+        "St Helens",
+        "Warrington",
+        "Bolton",
+        "Ashton-under-Lyne",
+        "Oldham",
+        "Rochdale",
+        "Runcorn",
+        "Widnes",
+        "Leigh",
+        "Bury",
+        "Eccles",
+        "Altrincham",
+        "Sale",
+        "Trafford Park",
+        "Irlam"
+      ],
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Runcorn",
+      "type": "sub_region",
+      "includes": [
+        "Runcorn",
+        "Widnes",
+        "Warrington",
+        "Chester",
+        "Northwich",
+        "Frodsham",
+        "Halton",
+        "Ellesmere Port",
+        "Stockport",
+        "Altrincham"
+      ],
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Warrington",
+      "type": "sub_region",
+      "includes": [
+        "Warrington",
+        "Runcorn",
+        "Widnes",
+        "Stockton Heath",
+        "Frodsham",
+        "Northwich",
+        "Knutsford",
+        "Altrincham",
+        "Sale",
+        "Irlam",
+        "Ashton-under-Lyne",
+        "Stalybridge",
+        "Wilmslow",
+        "Bowdon"
+      ],
+      "country": "United Kingdom"
+    },
+    {
+      "name": "North West England",
+      "type": "sub_region",
+      "includes": [
+        "Manchester",
+        "Liverpool",
+        "Preston",
+        "Bolton",
+        "Wigan",
+        "Stockport",
+        "Oldham",
+        "Rochdale",
+        "Salford",
+        "Tameside",
+        "Bury",
+        "Blackburn",
+        "Blackpool",
+        "Burnley",
+        "Lancaster",
+        "Carlisle",
+        "Kendal",
+        "Barrow-in-Furness",
+        "Penrith",
+        "Crewe",
+        "Warrington",
+        "Northwich",
+        "Runcorn"
+      ],
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Lancashire",
+      "type": "sub_region",
+      "includes": [
+        "Blackburn",
+        "Burnley",
+        "Lancaster",
+        "Preston"
+      ],
+      "country": "United Kingdom"
+    },
+    {
+      "name": "Remote (UK)",
+      "type": "remote",
+      "includes": [
+        "Remote",
+        "Home-based",
+        "Work from home"
+      ],
+      "country": "United Kingdom"
+    }
+  ]
+}

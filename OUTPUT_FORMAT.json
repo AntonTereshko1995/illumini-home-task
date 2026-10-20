@@ -1,0 +1,32 @@
+{
+  "output_file": "runs/<timestamp>/profile_<id>_matched.jsonl, one file per recruiter, e.g. data/user_search_inputs/profile_a/ -> profile_a_matched.jsonl",
+  "one_line_per": "job that goes into the recruiter's portal, as one JSON object; a job you leave out is out",
+  "fields": {
+    "job_id": {"type": "string", "meaning": "the job's job_id from the feed, unchanged"},
+    "profile_id": {"type": "string", "meaning": "the profile_id from the recruiter's search inputs"},
+    "matched_company": {"type": "string", "meaning": "the company from company_searches.json the job is at, spelled exactly as in the search inputs"},
+    "matched_job_title": {"type": "list of strings", "meaning": "every title from job_title_searches.json the job matches, spelled exactly as in the search inputs"},
+    "matched_location": {"type": "list of strings", "meaning": "every location from location_searches.json the job is in, spelled exactly as in the search inputs"},
+    "reason": {"type": "string", "meaning": "one line a recruiter would understand, why this job is in"},
+    "used_llm": {"type": "boolean", "meaning": "true if an LLM call decided anything about this job"}
+  },
+  "extra_fields": "fine, v1 adds title, company & location",
+  "example": {
+    "job_id": "J123456",
+    "profile_id": "a",
+    "matched_company": "Aire Calder",
+    "matched_job_title": ["Controls Engineer"],
+    "matched_location": ["Warrington", "North West England"],
+    "reason": "Open Controls Engineer role in Warrington at a listed company",
+    "used_llm": false
+  },
+  "matching_rules": {
+    "company": "The company must appear somewhere on the job page (declared company, heading, title tag, URL or body text), which is only a loose validator to make sure we have the correct career page, because the search upstream already picked this company's jobs. Names match ignoring case, punctuation, a leading The & legal or corporate words after the name such as Ltd, Limited, plc, Group, Holdings, International & UK, so IMC International Group is the listed IMC.",
+    "title": "Every word of the profile title appears in the job's real title in any order, ignoring case, punctuation & a plural s, and one job can match several titles.",
+    "location": "A location covers its own name & every town in its includes list, a sub_region (a region, nation or county) also covers any town inside it, and a remote location covers jobs the employer says are remote or home-based in its country. A job that names several places is in if any one of them matches, so Bristol, Manchester is a pass for a recruiter with Bristol, but a job in another country is never inside a location whatever the town is called. One job can match several locations.",
+    "live": "A recruiter needs evidence the job is live, and a page that returns 404 or 410 is closed & never goes in.",
+    "listed_when": "The company, at least one title & at least one location all match. matched_job_title lists every title it matches and matched_location every location it matches.",
+    "duplicates": "A real job appears at most once per file."
+  },
+  "labelled_sample": "In data/labelled_sample.jsonl, decision is yes (in) or no (out), and yes rows carry the expected matched_company, matched_job_title & matched_location."
+}

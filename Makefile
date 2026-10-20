@@ -1,0 +1,16 @@
+PYTHON ?= python3
+VENV := .venv
+BIN := $(VENV)/bin
+
+.PHONY: dev run test
+
+dev:
+	$(PYTHON) -m venv $(VENV)
+	$(BIN)/pip install -e ".[dev]"
+	$(BIN)/pre-commit install
+
+run:
+	$(BIN)/python -m v1.workers.job_matcher.handler
+
+test:
+	$(BIN)/python -m pytest -q

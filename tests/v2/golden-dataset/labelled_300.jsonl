@@ -123,7 +123,7 @@
 {"job_id": "J209586", "decision": "no", "reason": "no: the real title (Career Insights) fits none of the profile's titles", "matched_company": null, "matched_job_title": [], "matched_location": []}
 {"job_id": "J318389", "decision": "no", "reason": "no: the real title (Marketing and Communications Director - Jaguar/Saltaire Redrose) fits none of the profile's titles", "matched_company": null, "matched_job_title": [], "matched_location": []}
 {"job_id": "J231856", "decision": "no", "reason": "no: the page could not be read (blocked or not rendered), so the job is not confirmed open", "matched_company": null, "matched_job_title": [], "matched_location": []}
-{"job_id": "J747032", "decision": "yes", "reason": "yes: open job at a listed company, real title and a town the employer names fit", "matched_company": "Northwind Netherby", "matched_job_title": ["business development manager"], "matched_location": ["Manchester", "M62 Corridor", "Runcorn", "North West England"]}
+{"job_id": "J747032", "decision": "no", "reason": "no: the page could not be read (405 blocked), so the job is not confirmed open", "matched_company": null, "matched_job_title": [], "matched_location": []}
 {"job_id": "J594365", "decision": "no", "reason": "no: the real title (Principal Azure Architect) fits none of the profile's titles", "matched_company": null, "matched_job_title": [], "matched_location": []}
 {"job_id": "J827450", "decision": "no", "reason": "no: the job's location () is in none of the profile's locations", "matched_company": null, "matched_job_title": [], "matched_location": []}
 {"job_id": "J195238", "decision": "no", "reason": "no: the company is not on the profile's company list", "matched_company": null, "matched_job_title": [], "matched_location": []}

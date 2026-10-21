@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import pytest
 
 
@@ -58,3 +61,11 @@ def make_row(
         META_OUTCOME: "pass",
         **kwargs,
     }
+
+
+def read_sli(tmp_path: Path, trace_id: str = "t") -> list[dict]:
+    """Read SLI events written during a module call (mirrors tests/v1/helpers.py)."""
+    path = tmp_path / trace_id / "sli_events.jsonl"
+    if not path.exists():
+        return []
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]

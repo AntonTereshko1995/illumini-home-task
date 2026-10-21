@@ -19,9 +19,9 @@ STAGE_GRAPH = {
         name="resolve_title",
         module_path="v2.workers.job_matcher.normalization.resolve_title",
     ),
-    "resolve_location": StageDefinition(
-        name="resolve_location",
-        module_path="v2.workers.job_matcher.normalization.resolve_location",
+    "normalise_location": StageDefinition(
+        name="normalise_location",
+        module_path="v2.workers.job_matcher.normalization.normalise_location",
     ),
 }
 

@@ -1,11 +1,13 @@
-from v2.shared.patterns.worker_runtime import run_stage_loop
+from v2.shared.patterns.worker_runtime import StageDefinition, run_stage_loop
 
 STAGE_NAME = "stage_agent"
 
-# Empty — AI matching implementation TBD.
-# Agent modules will read resolved_title, resolved_company, town, region, country
-# and set: matched_company, matched_job_title, matched_location, reason on matched rows.
-STAGE_GRAPH = {}
+STAGE_GRAPH = {
+    "match_jobs": StageDefinition(
+        name="match_jobs",
+        module_path="v2.workers.job_matcher.agent.match_jobs",
+    ),
+}
 
 INPUT_CONTEXT_SCHEMA = {
     "version": "v2.0.0",

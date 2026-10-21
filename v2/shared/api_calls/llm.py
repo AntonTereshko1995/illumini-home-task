@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import os
+import threading
 import time
 from pathlib import Path
 
@@ -30,6 +31,7 @@ PROVIDERS: dict[str, dict] = {
 
 _run_dir: Path | None = None
 _clients: dict[str, object] = {}
+_budget_lock = threading.Lock()
 
 
 class BudgetExceeded(RuntimeError):
@@ -126,30 +128,33 @@ def _send(name: str, prompt: str, max_tokens: int, schema: dict | None) -> tuple
 
 def _call(prompt: str, max_tokens: int, purpose: str, schema: dict | None) -> str:
     name = provider()
-    total = _guard(name, prompt, max_tokens)
+    with _budget_lock:
+        total = _guard(name, prompt, max_tokens)
     started = time.time()
+    # API call is outside the lock — it's I/O-bound and the GIL releases
     text, prompt_tokens, completion_tokens, stop_reason = _send(name, prompt, max_tokens, schema)
     cost = cost_gbp(name, prompt_tokens, completion_tokens)
-    run_dir = _run_dir or (_runs_root() / time.strftime("%Y%m%dT%H%M%S", time.gmtime(started)))
-    run_dir.mkdir(parents=True, exist_ok=True)
-    with (run_dir / "llm_calls.jsonl").open("a", encoding="utf-8") as f:
-        f.write(
-            json.dumps(
-                {
-                    "ts": round(started, 3),
-                    "provider": name,
-                    "model": PROVIDERS[name]["model"],
-                    "purpose": purpose,
-                    "prompt_tokens": prompt_tokens,
-                    "completion_tokens": completion_tokens,
-                    "cost_gbp": round(cost, 6),
-                    "total_gbp": round(total + cost, 6),
-                    "stop_reason": stop_reason,
-                    "latency_ms": round((time.time() - started) * 1000),
-                }
+    rd = _run_dir or (_runs_root() / time.strftime("%Y%m%dT%H%M%S", time.gmtime(started)))
+    rd.mkdir(parents=True, exist_ok=True)
+    with _budget_lock:
+        with (rd / "llm_calls.jsonl").open("a", encoding="utf-8") as f:
+            f.write(
+                json.dumps(
+                    {
+                        "ts": round(started, 3),
+                        "provider": name,
+                        "model": PROVIDERS[name]["model"],
+                        "purpose": purpose,
+                        "prompt_tokens": prompt_tokens,
+                        "completion_tokens": completion_tokens,
+                        "cost_gbp": round(cost, 6),
+                        "total_gbp": round(total + cost, 6),
+                        "stop_reason": stop_reason,
+                        "latency_ms": round((time.time() - started) * 1000),
+                    }
+                )
+                + "\n"
             )
-            + "\n"
-        )
     return text.strip()
 
 

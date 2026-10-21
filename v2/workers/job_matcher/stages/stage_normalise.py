@@ -11,17 +11,17 @@ STAGE_GRAPH = {
         name="filter_duplicates",
         module_path="v2.workers.job_matcher.normalization.filter_duplicates",
     ),
-    "resolve_location": StageDefinition(
-        name="resolve_location",
-        module_path="v2.workers.job_matcher.normalization.resolve_location",
+    "resolve_company": StageDefinition(
+        name="resolve_company",
+        module_path="v2.workers.job_matcher.normalization.resolve_company",
     ),
     "resolve_title": StageDefinition(
         name="resolve_title",
         module_path="v2.workers.job_matcher.normalization.resolve_title",
     ),
-    "resolve_company": StageDefinition(
-        name="resolve_company",
-        module_path="v2.workers.job_matcher.normalization.resolve_company",
+    "resolve_location": StageDefinition(
+        name="resolve_location",
+        module_path="v2.workers.job_matcher.normalization.resolve_location",
     ),
 }
 

@@ -201,14 +201,21 @@ async def _process_all(
     locations: list,
     logger,
     trace_id: str,
+    sem: asyncio.Semaphore | None = None,
 ) -> None:
-    sem = asyncio.Semaphore(_CONCURRENCY)
+    if sem is None:
+        sem = asyncio.Semaphore(_CONCURRENCY)
     await asyncio.gather(
         *[_process_row(sem, row, questions, companies, titles, locations, logger, trace_id) for row in rows]
     )
 
 
-def main(context: dict, prev_data: list[dict]) -> ExecutionResult:
+async def main_async(
+    context: dict,
+    prev_data: list[dict],
+    sem: asyncio.Semaphore | None = None,
+) -> ExecutionResult:
+    """Async entry point — accepts a shared semaphore from chunk_runner for global concurrency control."""
     trace_id: str = context.get("trace_id") or ""
     start_time = time.time()
     logger = get_logger(MODULE_NAME)
@@ -219,14 +226,21 @@ def main(context: dict, prev_data: list[dict]) -> ExecutionResult:
     locations = profile.get("locations") or []
 
     questions = _build_questions(companies, titles, locations)
+    log_event(logger, "info", "module_start", trace_id, input_count=len(prev_data))
 
-    asyncio.run(_process_all(prev_data, questions, companies, titles, locations, logger, trace_id))
+    await _process_all(prev_data, questions, companies, titles, locations, logger, trace_id, sem=sem)
 
+    kept = passed(prev_data)
+    log_event(logger, "info", "module_done", trace_id, matched=len(kept), total=len(prev_data))
     sli_observe(prev_data, MODULE_NAME, start_time, trace_id)
     return ExecutionResult(
         trace_id=trace_id,
         script_span_id=f"{MODULE_NAME}_{trace_id}",
-        data=passed(prev_data),
+        data=kept,
         artifacts={},
         metrics={},
     )
+
+
+def main(context: dict, prev_data: list[dict]) -> ExecutionResult:
+    return asyncio.run(main_async(context, prev_data))

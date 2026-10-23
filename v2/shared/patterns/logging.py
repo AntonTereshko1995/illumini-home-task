@@ -5,9 +5,28 @@ from __future__ import annotations
 import json
 import logging
 import os
+import threading
+from pathlib import Path
 from typing import Any
 
 LOG_FORMAT = "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+
+_file_handler: logging.FileHandler | None = None
+_handler_lock = threading.Lock()
+
+
+def configure_file_logging(run_dir: Path) -> None:
+    """Add a FileHandler writing to run_dir/logs.jsonl. Call once per run after run_dir is created."""
+    global _file_handler
+    new_handler = logging.FileHandler(run_dir / "logs.jsonl", encoding="utf-8")
+    new_handler.setFormatter(logging.Formatter(LOG_FORMAT))
+    with _handler_lock:
+        # Add first so there is never a window with no file handler attached.
+        logging.getLogger().addHandler(new_handler)
+        if _file_handler is not None:
+            logging.getLogger().removeHandler(_file_handler)
+            _file_handler.close()
+        _file_handler = new_handler
 
 
 def get_logger(name: str) -> logging.Logger:

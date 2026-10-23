@@ -8,6 +8,7 @@ main(), on the FULL row list (passed and rejected). Counting is a group-by over 
 from __future__ import annotations
 
 import json
+import threading
 import time
 
 from v2.shared.patterns.worker_runtime import run_dir
@@ -15,6 +16,10 @@ from v2.shared.patterns.worker_runtime import run_dir
 META_OUTCOME = "META_OUTCOME"
 META_REJECTION_REASON = "META_REJECTION_REASON"
 META_ERROR_REASON = "META_ERROR_REASON"
+
+# Serialises concurrent writes from normalization threads (run_in_executor).
+# All runs share a single trace_id at a time, so one global lock is sufficient.
+_sli_write_lock = threading.Lock()
 
 
 def passed(rows: list[dict]) -> list[dict]:
@@ -28,19 +33,26 @@ def reject(row: dict, reason: str) -> None:
     row[META_REJECTION_REASON] = reason
 
 
+def error_out(row: dict, reason: str) -> None:
+    """Tag one row as errored with a reason from the module's ERROR_REASONS."""
+    row[META_OUTCOME] = "error"
+    row[META_ERROR_REASON] = reason
+
+
 def sli_observe(rows: list[dict], module_name: str, start_time: float, trace_id: str) -> None:
     """One fact per row (never totals) in runs/<trace_id>/sli_events.jsonl."""
     duration_ms = round((time.time() - start_time) * 1000)
-    with (run_dir(trace_id) / "sli_events.jsonl").open("a", encoding="utf-8") as f:
-        for row in rows:
-            event = {
-                "META_TRACE_ID": trace_id,
-                "META_WORKER": module_name.split("__")[0],
-                "META_MODULE": module_name,
-                "job_id": row.get("job_id") or row.get("_line"),
-                META_OUTCOME: row.get(META_OUTCOME, "untagged"),
-                META_REJECTION_REASON: row.get(META_REJECTION_REASON),
-                META_ERROR_REASON: row.get(META_ERROR_REASON),
-                "META_DURATION_MS": duration_ms,
-            }
-            f.write(json.dumps(event) + "\n")
+    with _sli_write_lock:
+        with (run_dir(trace_id) / "sli_events.jsonl").open("a", encoding="utf-8") as f:
+            for row in rows:
+                event = {
+                    "META_TRACE_ID": trace_id,
+                    "META_WORKER": module_name.split("__")[0],
+                    "META_MODULE": module_name,
+                    "job_id": row.get("job_id") or row.get("_line"),
+                    META_OUTCOME: row.get(META_OUTCOME, "untagged"),
+                    META_REJECTION_REASON: row.get(META_REJECTION_REASON),
+                    META_ERROR_REASON: row.get(META_ERROR_REASON),
+                    "META_DURATION_MS": duration_ms,
+                }
+                f.write(json.dumps(event) + "\n")

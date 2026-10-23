@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 from v2.shared.api_calls import llm
-from v2.shared.patterns.logging import get_logger, log_event
+from v2.shared.patterns.logging import configure_file_logging, get_logger, log_event
 from v2.shared.patterns.worker_runtime import (
     DEFAULT_JOBS,
     DEFAULT_SEARCH_INPUTS,
@@ -30,6 +30,7 @@ def run_parallel_pipeline(jobs_path: Path, search_inputs_dir: Path) -> dict[str,
     logger = get_logger(HANDLER_NAME)
     rd = run_dir(trace_id)
     llm.start_run(rd)
+    configure_file_logging(rd)
     log_event(logger, "info", "run_started", trace_id, jobs_path=str(jobs_path))
 
     stage_clean_jobs = importlib.import_module("v2.workers.job_matcher.stages.stage_clean_jobs")

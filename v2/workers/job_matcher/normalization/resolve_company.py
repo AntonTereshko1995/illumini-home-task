@@ -43,29 +43,32 @@ def _resolve_company_name(row: dict) -> str:
     return row.get("company", "").strip()
 
 
-def _build_profile_tokens(companies: list) -> frozenset[str]:
-    tokens: set[str] = set()
+def _build_profile_company_tokensets(companies: list) -> list[frozenset[str]]:
+    result = []
     for c in companies:
         name = c.get("name", "") if isinstance(c, dict) else str(c)
-        tokens.update(_tokenize(name))
-    return frozenset(tokens)
+        toks = _tokenize(name)
+        if toks:
+            result.append(toks)
+    return result
 
 
 logger = get_logger(MODULE_NAME)
 
 
 def main(context: dict, prev_data: list[dict]) -> ExecutionResult:
-    trace_id: str = context.get("trace_id")
+    trace_id: str = context.get("trace_id") or ""
     start_time = time.time()
     log_event(logger, "info", "module_start", trace_id, input_count=len(prev_data))
 
-    profile_tokens = _build_profile_tokens(context["profile"].get("companies") or [])
+    profile_tokensets = _build_profile_company_tokensets(context["profile"].get("companies") or [])
 
     for row in prev_data:
         try:
             resolved = _resolve_company_name(row)
             row["resolved_company"] = resolved
-            if not _tokenize(resolved) & profile_tokens:
+            job_toks = _tokenize(resolved)
+            if not any(ct <= job_toks for ct in profile_tokensets):
                 reject(row, "COMPANY_NOT_IN_PROFILE")
         except Exception as exc:
             log_event(logger, "error", "row_error", trace_id, job_id=row.get("job_id"), error=str(exc))

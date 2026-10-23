@@ -49,29 +49,31 @@ def _resolve_title(row: dict) -> str:
     return row.get("title", "").strip()
 
 
-def _build_profile_title_words(titles: list) -> frozenset[str]:
-    tokens: set[str] = set()
+def _build_profile_title_sets(titles: list) -> list[frozenset[str]]:
+    result = []
     for t in titles:
         name = t if isinstance(t, str) else t.get("title", "")
-        tokens.update(_title_words(name))
-    return frozenset(tokens)
+        toks = _title_words(name)
+        if toks:
+            result.append(toks)
+    return result
 
 
 logger = get_logger(MODULE_NAME)
 
 
 def main(context: dict, prev_data: list[dict]) -> ExecutionResult:
-    trace_id: str = context.get("trace_id")
+    trace_id: str = context.get("trace_id") or ""
     start_time = time.time()
     log_event(logger, "info", "module_start", trace_id, input_count=len(prev_data))
 
-    profile_title_words = _build_profile_title_words(context["profile"].get("titles") or [])
+    profile_title_sets = _build_profile_title_sets(context["profile"].get("titles") or [])
 
     for row in prev_data:
         try:
             resolved = _resolve_title(row)
             row["resolved_title"] = resolved
-            if not _title_words(resolved) & profile_title_words:
+            if not any(wset <= _title_words(resolved) for wset in profile_title_sets):
                 reject(row, "TITLE_NOT_IN_PROFILE")
         except Exception as exc:
             log_event(logger, "error", "row_error", trace_id, job_id=row.get("job_id"), error=str(exc))

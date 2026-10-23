@@ -22,7 +22,8 @@ def main(context: dict, prev_data: list[dict]) -> ExecutionResult:
 
         run_path = _run_dir(trace_id)
 
-    report_path = generate(run_path)
+    elapsed: float | None = context.get("elapsed_seconds")
+    report_path = generate(run_path, elapsed_seconds=elapsed)
     log_event(logger, "info", "report_written", trace_id, report_path=str(report_path))
     return ExecutionResult(
         trace_id=trace_id,

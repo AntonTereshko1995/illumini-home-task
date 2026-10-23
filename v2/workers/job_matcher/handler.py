@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import importlib
 import sys
+import time
 from pathlib import Path
 
 from v2.shared.api_calls import llm
@@ -26,6 +27,7 @@ VERSION = "v2.0.0"
 
 def run_parallel_pipeline(jobs_path: Path, search_inputs_dir: Path) -> dict[str, str]:
     """Load all jobs once, run parallel normalization+agent per recruiter, then output."""
+    pipeline_start = time.monotonic()
     trace_id = new_trace_id()
     logger = get_logger(HANDLER_NAME)
     rd = run_dir(trace_id)
@@ -64,7 +66,11 @@ def run_parallel_pipeline(jobs_path: Path, search_inputs_dir: Path) -> dict[str,
         outputs[context["output_path"]] = str(len(output_result.data))
 
     # Stage 5: report (per run, after all profiles)
-    report_context = {"trace_id": trace_id, "runs_dir": str(rd)}
+    report_context = {
+        "trace_id": trace_id,
+        "runs_dir": str(rd),
+        "elapsed_seconds": time.monotonic() - pipeline_start,
+    }
     stage_report.main(report_context, [])
 
     log_event(logger, "info", "run_finished", trace_id, outputs=outputs,

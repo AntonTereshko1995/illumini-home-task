@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 
 import pytest
+from sklearn.metrics import classification_report, f1_score, precision_score, recall_score
 
 GOLDEN = Path(__file__).resolve().parent / "golden-dataset"
 JOBS_PATH = GOLDEN / "jobs.jsonl"
@@ -85,10 +86,28 @@ def labelled(labelled_rows):
 # ---------------------------------------------------------------------------
 
 
+def _compute_metrics(pipeline_results: dict, labelled_rows: list[dict]) -> dict:
+    """Return precision, recall, f1 and per-class report for the pipeline output."""
+    all_ids = [r["job_id"] for r in labelled_rows]
+    y_true = [1 if r["decision"] == "yes" else 0 for r in labelled_rows]
+    y_pred = [1 if jid in pipeline_results else 0 for jid in all_ids]
+    return {
+        "precision": precision_score(y_true, y_pred, zero_division=0),
+        "recall": recall_score(y_true, y_pred, zero_division=0),
+        "f1": f1_score(y_true, y_pred, zero_division=0),
+        "report": classification_report(y_true, y_pred, target_names=["no", "yes"], zero_division=0),
+        "y_true": y_true,
+        "y_pred": y_pred,
+    }
+
+
 @_requires_llm
-def test_recall_meets_target_threshold(pipeline_results, labelled):
+def test_recall_meets_target_threshold(pipeline_results, labelled, labelled_rows):
     yes_ids, _ = labelled
     hits = yes_ids & pipeline_results.keys()
+    m = _compute_metrics(pipeline_results, labelled_rows)
+    print(f"\n--- Classification report ---\n{m['report']}")
+    print(f"precision={m['precision']:.3f}  recall={m['recall']:.3f}  f1={m['f1']:.3f}")
     assert len(hits) >= 17, f"Recall {len(hits)}/{len(yes_ids)}; misses: {sorted(yes_ids - pipeline_results.keys())}"
 
 
@@ -97,6 +116,16 @@ def test_no_false_positives(pipeline_results, labelled):
     _, no_ids = labelled
     fp = no_ids & pipeline_results.keys()
     assert fp == set(), f"False positives: {sorted(fp)}"
+
+
+@_requires_llm
+def test_classification_metrics(pipeline_results, labelled_rows):
+    """Print and assert minimum precision/recall/f1 thresholds."""
+    m = _compute_metrics(pipeline_results, labelled_rows)
+    print(f"\n--- Classification report ---\n{m['report']}")
+    assert m["recall"] >= 0.9, f"recall={m['recall']:.3f} < 0.9"
+    assert m["precision"] >= 0.9, f"precision={m['precision']:.3f} < 0.9"
+    assert m["f1"] >= 0.9, f"f1={m['f1']:.3f} < 0.9"
 
 
 @_requires_llm

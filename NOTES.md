@@ -1,19 +1,40 @@
 # Notes
 
+## Run timing — 200k feed
+
+| | Timestamp |
+|---|---|
+| Start | `2026-10-23 20:55:54.014` |
+| End | `2026-10-23 20:57:35.167` |
+| **Total** | **1 min 41 sec** |
+
+### Classification report
+
+```
+              precision    recall  f1-score   support
+
+          no       0.98      1.00      0.99       283
+         yes       0.91      0.59      0.71        17
+
+    accuracy                           0.97       300
+   macro avg       0.94      0.79      0.85       300
+weighted avg       0.97      0.97      0.97       300
+```
+
+---
+
 ## LLM Provider
 
 [Vercel AI Gateway](https://vercel.com/ai-gateway/models/jev) is a good fit here — the task is essentially data comparison, so the most important thing is normalizing the data correctly.
 
-Links:
-[habr.com/ru/articles/1085450](https://habr.com/ru/articles/1085450/) Очень крутая статья
+**References:**
 
-[habr.com/ru/articles/1087480](https://habr.com/ru/articles/1087480/)
-
-[habr.com/ru/articles/1084030](https://habr.com/ru/articles/1084030/)
-
-[habr.com/ru/articles/1092000
-](https://habr.com/ru/articles/1092000/)[habr.com/ru/articles/1089164](https://habr.com/ru/articles/1089164/) Очень крутая статья
-[habr.com/ru/articles/1086180](https://habr.com/ru/articles/1086180/)
+- [habr.com/ru/articles/1085450](https://habr.com/ru/articles/1085450/) ★ Great article
+- [habr.com/ru/articles/1087480](https://habr.com/ru/articles/1087480/)
+- [habr.com/ru/articles/1084030](https://habr.com/ru/articles/1084030/)
+- [habr.com/ru/articles/1092000](https://habr.com/ru/articles/1092000/)
+- [habr.com/ru/articles/1089164](https://habr.com/ru/articles/1089164/) ★ Great article
+- [habr.com/ru/articles/1086180](https://habr.com/ru/articles/1086180/)
 
 ---
 

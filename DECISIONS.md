@@ -1,5 +1,6 @@
 # Decisions
 
-## 1. Placeholder
+Улучшения:
 
-Sample: blocked pages stay out of the portal, because we cannot prove the job is still open.
+1. Реализовать fuzzy-matching, чтобы еще увеличить 
+   DeepEval в дальнейшем нужно добавить.

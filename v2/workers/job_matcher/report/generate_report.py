@@ -7,7 +7,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 
-def generate(run_dir: Path) -> Path:
+def generate(run_dir: Path, elapsed_seconds: float | None = None) -> Path:
     """Write runs/<trace_id>/report.md; return its path."""
     sli_path = run_dir / "sli_events.jsonl"
     llm_path = run_dir / "llm_calls.jsonl"
@@ -43,10 +43,12 @@ def generate(run_dir: Path) -> Path:
                     llm_calls += 1
 
     # --- Build report ---
+    elapsed_str = f"{elapsed_seconds:.1f}s" if elapsed_seconds is not None else "n/a"
     lines: list[str] = [
         "# Job Matcher v2 Run Report",
         "",
         f"**Trace ID:** `{trace_id}`  ",
+        f"**Pipeline time:** {elapsed_str}  ",
         f"**Matched jobs:** {len(matched_rows)}  ",
         f"**LLM calls:** {llm_calls}  ",
         f"**LLM spend:** £{total_cost:.4f}",

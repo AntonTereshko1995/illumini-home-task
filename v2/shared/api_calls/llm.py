@@ -1,37 +1,61 @@
-"""The ONE way this codebase calls an LLM. Budget £1 for the whole task; hard stop at £3.00.
+"""The ONE way this codebase calls an LLM — TypeSafe AI jev via Vercel AI Gateway.
 
-    from v2.shared.api_calls.llm import ask, ask_json, BudgetExceeded
-    summary = ask("Summarise this job title in three words: ...", purpose="title_summary")
-    data = ask_json("...", schema={"type": "object", "properties": {...}, "required": [...],
-                                   "additionalProperties": False}, purpose="...")
+Usage:
+    from v2.shared.api_calls.llm import decide, NoulQuestion, ChoiceQuestion, BudgetExceeded
 
-Provider: Anthropic if ANTHROPIC_SENIOR_DEVELOPER_KEY is set, else Gemini (GEMINI_SENIOR_DEVELOPER_KEY).
-Every call is logged to runs/<run>/llm_calls.jsonl (tokens, cost, your `purpose`). Spend is summed across
-EVERY run folder. Before each call the worst case (prompt + max_tokens) is added to the total; if that
-would pass £3.00, BudgetExceeded is raised and nothing is sent. There is no override.
+    answers = decide(
+        state={"title": "Controls Engineer", "company": "Siemens Energy", ...},
+        questions={
+            "company_match": NoulQuestion(
+                instructions="Does this job belong to one of the target companies?",
+                criteria={"true": "Company matches", "false": "Company does not match"},
+            ),
+            "location": ChoiceQuestion(
+                instructions="Which location?",
+                criteria={"wigan": "Wigan", "none": "None"},
+            ),
+        },
+        purpose="job_matching",
+    )
+    answers["company_match"].noul   # float [0, 1] — probability of True
+    answers["location"].choice      # e.g. "wigan"
+
+Provider: typesafe-ai/jev via Vercel AI Gateway (.env → AI_GATEWAY_API_KEY).
+Every call is logged to runs/<run>/llm_calls.jsonl (tokens, GBP cost, purpose).
+Hard stop at £3.00 (BudgetExceeded raised before sending).
 """
 
 from __future__ import annotations
 
+import asyncio
 import json
 import os
 import threading
 import time
 from pathlib import Path
+from typing import Any
 
-BUDGET_GBP = 3.00  # hard stop; the task budget is £1 (spend above it is questioned)
+import ai
+from ai.ops.experimental import (  # re-exported for callers
+    ChoiceAnswer,
+    ChoiceQuestion,
+    NoulAnswer,
+    NoulQuestion,
+    ScoreAnswer,
+    ScoreQuestion,
+    evaluate,
+)
+
+BUDGET_GBP = 3.00
 USD_TO_GBP = 0.79
-DEFAULT_MAX_TOKENS = 500
-CHARS_PER_TOKEN_WORST_CASE = 2.5  # conservative: real English is ~4 chars per token
-PROVIDERS: dict[str, dict] = {
-    # USD per million tokens. Thinking tokens are billed as output.
-    "anthropic": {"key": "ANTHROPIC_SENIOR_DEVELOPER_KEY", "model": "claude-opus-5-5", "in": 4.00, "out": 20.00},
-    "gemini": {"key": "GEMINI_SENIOR_DEVELOPER_KEY", "model": "gemini-3.5-flash", "in": 0.30, "out": 2.50},
-}
+_JEV_INPUT_PRICE_USD_PER_M = 0.042  # output tokens are free
+
+_MODEL_ID = "typesafe-ai/jev"
 
 _run_dir: Path | None = None
-_clients: dict[str, object] = {}
 _budget_lock = threading.Lock()
+_model: Any = None
+_in_flight_cost: float = 0.0  # sum of worst-case costs for concurrent in-flight calls
 
 
 class BudgetExceeded(RuntimeError):
@@ -58,7 +82,6 @@ def spent_gbp() -> float:
 
 
 def _load_env(path: Path = Path(".env")) -> None:
-    """KEY=value lines from .env into the environment (values already set in the shell win)."""
     if path.exists():
         for line in path.read_text(encoding="utf-8").splitlines():
             key, sep, value = line.partition("=")
@@ -66,75 +89,83 @@ def _load_env(path: Path = Path(".env")) -> None:
                 os.environ.setdefault(key.strip(), value.strip().strip('"'))
 
 
-def provider() -> str:
-    """'anthropic' if its key is set (shell or .env), else 'gemini'."""
+def _ensure_gateway_key() -> None:
     _load_env()
-    for name, spec in PROVIDERS.items():
-        if os.environ.get(spec["key"]):
-            return name
-    raise RuntimeError("No LLM key: set ANTHROPIC_SENIOR_DEVELOPER_KEY or GEMINI_SENIOR_DEVELOPER_KEY in .env")
+    jev_key = os.environ.get("AI_GATEWAY_API_KEY", "")
+    if not jev_key:
+        raise RuntimeError("No jev key: set AI_GATEWAY_API_KEY in .env")
+    os.environ.setdefault("AI_GATEWAY_API_KEY", jev_key)
 
 
-def cost_gbp(name: str, prompt_tokens: int, completion_tokens: int) -> float:
-    spec = PROVIDERS[name]
-    return (prompt_tokens * spec["in"] + completion_tokens * spec["out"]) / 1_000_000 * USD_TO_GBP
+def _get_model() -> Any:
+    global _model
+    if _model is None:
+        _ensure_gateway_key()
+        _model = ai.get_model(_MODEL_ID)
+    return _model
 
 
-def _guard(name: str, prompt: str, max_tokens: int) -> float:
-    """Raise BudgetExceeded unless the worst case of this call still fits under £3.00. Returns spend so far."""
+def _cost_gbp(input_tokens: int) -> float:
+    return input_tokens * _JEV_INPUT_PRICE_USD_PER_M / 1_000_000 * USD_TO_GBP
+
+
+def _estimate_tokens(state: dict, questions: dict) -> int:
+    state_chars = sum(len(str(v)) for v in state.values())
+    question_chars = sum(len(str(q)) for q in questions.values())
+    return (state_chars + question_chars) // 4
+
+
+def _guard(estimated_tokens: int) -> tuple[float, float]:
+    """Check budget, reserve worst-case cost. Returns (total_spent, reserved).
+    Caller must call _release_in_flight(reserved) in a finally block."""
+    global _in_flight_cost
     total = spent_gbp()
-    worst = cost_gbp(name, int(len(prompt) / CHARS_PER_TOKEN_WORST_CASE) + 1, max_tokens)
-    if total + worst > BUDGET_GBP:
+    worst = _cost_gbp(estimated_tokens)
+    if total + _in_flight_cost + worst > BUDGET_GBP:
         raise BudgetExceeded(
-            f"LLM budget: £{total:.4f} spent, this call could cost up to £{worst:.4f}, cap £{BUDGET_GBP:.2f}"
+            f"LLM budget: £{total:.4f} spent + £{_in_flight_cost:.4f} in-flight, "
+            f"this call ~£{worst:.4f}, cap £{BUDGET_GBP:.2f}"
         )
-    return total
+    _in_flight_cost += worst
+    return total, worst
 
 
-def _send(name: str, prompt: str, max_tokens: int, schema: dict | None) -> tuple[str, int, int, str]:
-    """One provider call -> (text, prompt_tokens, completion_tokens, stop_reason)."""
-    spec = PROVIDERS[name]
-    if name == "anthropic":
-        import anthropic
-
-        client = _clients.setdefault(name, anthropic.Anthropic(api_key=os.environ[spec["key"]]))
-        output_config: dict = {"effort": "low"}
-        if schema:
-            output_config["format"] = {"type": "json_schema", "schema": schema}
-        response = client.messages.create(
-            model=spec["model"],
-            max_tokens=max_tokens,
-            output_config=output_config,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = "".join(block.text for block in response.content if block.type == "text")
-        return text, response.usage.input_tokens, response.usage.output_tokens, str(response.stop_reason)
-    from google import genai
-    from google.genai import types
-
-    client = _clients.setdefault(name, genai.Client(api_key=os.environ[spec["key"]]))
-    config = types.GenerateContentConfig(
-        max_output_tokens=max_tokens,
-        temperature=0.0,
-        thinking_config=types.ThinkingConfig(thinking_budget=0),
-        **({"response_mime_type": "application/json", "response_json_schema": schema} if schema else {}),
-    )
-    response = client.models.generate_content(model=spec["model"], contents=prompt, config=config)
-    usage = response.usage_metadata
-    completion = (usage.candidates_token_count or 0) + (usage.thoughts_token_count or 0)
-    finish = response.candidates[0].finish_reason if response.candidates else None
-    return response.text or "", usage.prompt_token_count or 0, completion, str(finish)
+def _release_in_flight(reserved: float) -> None:
+    global _in_flight_cost
+    _in_flight_cost = max(0.0, _in_flight_cost - reserved)
 
 
-def _call(prompt: str, max_tokens: int, purpose: str, schema: dict | None) -> str:
-    name = provider()
-    with _budget_lock:
-        total = _guard(name, prompt, max_tokens)
-    started = time.time()
-    # API call is outside the lock — it's I/O-bound and the GIL releases
-    text, prompt_tokens, completion_tokens, stop_reason = _send(name, prompt, max_tokens, schema)
-    cost = cost_gbp(name, prompt_tokens, completion_tokens)
-    rd = _run_dir or (_runs_root() / time.strftime("%Y%m%dT%H%M%S", time.gmtime(started)))
+async def _evaluate_async(state: dict, questions: dict) -> tuple[dict, int]:
+    item = await evaluate(_get_model(), state, questions)
+    input_tokens = item.usage.input_tokens if item.usage else 0
+    return item.value, input_tokens
+
+
+def _safe_json(obj: Any) -> Any:
+    if isinstance(obj, (str, int, float, bool)) or obj is None:
+        return obj
+    if isinstance(obj, dict):
+        return {k: _safe_json(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_safe_json(x) for x in obj]
+    try:
+        return {k: _safe_json(v) for k, v in vars(obj).items()}
+    except TypeError:
+        return str(obj)
+
+
+def _log_call(
+    rd: Path,
+    started: float,
+    total: float,
+    purpose: str,
+    input_tokens: int,
+    state: dict | None = None,
+    questions: dict | None = None,
+    answers: dict | None = None,
+) -> None:
+    cost = _cost_gbp(input_tokens)
+    latency = round((time.time() - started) * 1000)
     rd.mkdir(parents=True, exist_ok=True)
     with _budget_lock:
         with (rd / "llm_calls.jsonl").open("a", encoding="utf-8") as f:
@@ -142,27 +173,82 @@ def _call(prompt: str, max_tokens: int, purpose: str, schema: dict | None) -> st
                 json.dumps(
                     {
                         "ts": round(started, 3),
-                        "provider": name,
-                        "model": PROVIDERS[name]["model"],
+                        "provider": "jev",
+                        "model": _MODEL_ID,
                         "purpose": purpose,
-                        "prompt_tokens": prompt_tokens,
-                        "completion_tokens": completion_tokens,
+                        "input_tokens": input_tokens,
+                        "output_tokens": 0,
                         "cost_gbp": round(cost, 6),
                         "total_gbp": round(total + cost, 6),
-                        "stop_reason": stop_reason,
-                        "latency_ms": round((time.time() - started) * 1000),
+                        "latency_ms": latency,
                     }
                 )
                 + "\n"
             )
-    return text.strip()
+        if state is not None or questions is not None or answers is not None:
+            with (rd / "llm_prompts.jsonl").open("a", encoding="utf-8") as f:
+                f.write(
+                    json.dumps(
+                        {
+                            "ts": round(started, 3),
+                            "purpose": purpose,
+                            "latency_ms": latency,
+                            "state": _safe_json(state),
+                            "questions": _safe_json(questions),
+                            "answers": _safe_json(answers),
+                        }
+                    )
+                    + "\n"
+                )
 
 
-def ask(prompt: str, max_tokens: int = DEFAULT_MAX_TOKENS, purpose: str = "") -> str:
-    """Send one prompt, get the text reply. `purpose` is logged so the spend can be read back."""
-    return _call(prompt, max_tokens, purpose, None)
+def decide(
+    state: dict[str, Any],
+    questions: dict[str, NoulQuestion | ChoiceQuestion | ScoreQuestion],
+    purpose: str = "",
+) -> dict[str, NoulAnswer | ChoiceAnswer | ScoreAnswer]:
+    """Ask jev to answer structured questions about `state` (synchronous, sequential).
+
+    answers["key"].noul    — NoulAnswer: probability float [0, 1]
+    answers["key"].choice  — ChoiceAnswer: chosen option key string
+    answers["key"].score   — ScoreAnswer: float score
+    """
+    estimated = _estimate_tokens(state, questions)
+    with _budget_lock:
+        total, reserved = _guard(estimated)
+
+    started = time.time()
+    try:
+        answers, input_tokens = asyncio.run(_evaluate_async(state, questions))
+    finally:
+        with _budget_lock:
+            _release_in_flight(reserved)
+
+    rd = _run_dir or (_runs_root() / time.strftime("%Y%m%dT%H%M%S", time.gmtime(started)))
+    _log_call(rd, started, total, purpose, input_tokens, state, questions, answers)
+    return answers
 
 
-def ask_json(prompt: str, schema: dict, max_tokens: int = DEFAULT_MAX_TOKENS, purpose: str = "") -> dict:
-    """Send one prompt, get a dict that matches `schema` (a JSON Schema object with additionalProperties false)."""
-    return json.loads(_call(prompt, max_tokens, purpose, schema))
+async def decide_async(
+    state: dict[str, Any],
+    questions: dict[str, NoulQuestion | ChoiceQuestion | ScoreQuestion],
+    purpose: str = "",
+) -> dict[str, NoulAnswer | ChoiceAnswer | ScoreAnswer]:
+    """Ask jev to answer structured questions about `state` (async, safe for asyncio.gather).
+
+    Must be called from within an active event loop — use asyncio.run() at the top level.
+    """
+    estimated = _estimate_tokens(state, questions)
+    with _budget_lock:
+        total, reserved = _guard(estimated)
+
+    started = time.time()
+    try:
+        answers, input_tokens = await _evaluate_async(state, questions)
+    finally:
+        with _budget_lock:
+            _release_in_flight(reserved)
+
+    rd = _run_dir or (_runs_root() / time.strftime("%Y%m%dT%H%M%S", time.gmtime(started)))
+    _log_call(rd, started, total, purpose, input_tokens, state, questions, answers)
+    return answers

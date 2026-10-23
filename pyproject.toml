@@ -8,6 +8,8 @@ dependencies = [
     "google-genai==2.30.1",
     "pydantic==2.14.1",
     "orjson==3.13.0",
+    "ai==0.8.0",
+    "typesafe-sdk",
 ]
 
 [project.optional-dependencies]

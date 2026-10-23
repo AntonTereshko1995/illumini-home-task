@@ -24,7 +24,7 @@ from typing import Any
 from v2.shared.api_calls import llm
 from v2.shared.patterns.logging import get_logger, log_event
 
-DEFAULT_JOBS = Path("data/jobs_raw.jsonl")
+DEFAULT_JOBS = Path("data/scale_feed.jsonl")
 DEFAULT_SEARCH_INPUTS = Path("data/user_search_inputs")
 SEARCH_INPUT_FILES = {"companies": "company_searches.json", "titles": "job_title_searches.json",
                       "locations": "location_searches.json"}  # fmt: skip

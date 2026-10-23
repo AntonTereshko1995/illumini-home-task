@@ -4,6 +4,17 @@
 
 [Vercel AI Gateway](https://vercel.com/ai-gateway/models/jev) is a good fit here — the task is essentially data comparison, so the most important thing is normalizing the data correctly.
 
+Links:
+[habr.com/ru/articles/1085450](https://habr.com/ru/articles/1085450/) Очень крутая статья
+
+[habr.com/ru/articles/1087480](https://habr.com/ru/articles/1087480/)
+
+[habr.com/ru/articles/1084030](https://habr.com/ru/articles/1084030/)
+
+[habr.com/ru/articles/1092000
+](https://habr.com/ru/articles/1092000/)[habr.com/ru/articles/1089164](https://habr.com/ru/articles/1089164/) Очень крутая статья
+[habr.com/ru/articles/1086180](https://habr.com/ru/articles/1086180/)
+
 ---
 
 ## Architecture
@@ -358,16 +369,16 @@ The worker **works** — architecture and contracts are correct. But `resolve_jo
 
 ## `normalise_job_rows` — 8 tests
 
-| Test | Reason for failure |
-| ---- | ------------------ |
-| `test_parse_salary_k_suffix` | `parse_salary("£50K per Annum")` → `int("50K per Annum")` → `ValueError` |
-| `test_parse_salary_range_with_k` | `parse_salary("1K - 3K per Annum")` → same error |
-| `test_parse_salary_real_feed_formats[£31K per Annum]` | K suffix, different amount |
-| `test_parse_salary_real_feed_formats[2 - 3 per Annum]` | Range without £ or K |
-| `test_parse_salary_real_feed_formats[15 - 17 per Annum]` | Range without currency symbols |
-| `test_parse_salary_real_feed_formats[$2 per Annum]` | Dollar sign instead of pound |
-| `test_parse_salary_real_feed_formats[00-14]` | Hyphenated format with no meaningful value |
-| `test_normalise_missing_scraped_has_sli_entry` | `except Exception: pass` — row is silently lost, nothing is written to the SLI log |
+| Test                                                       | Reason for failure                                                                    |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `test_parse_salary_k_suffix`                             | `parse_salary("£50K per Annum")` → `int("50K per Annum")` → `ValueError`     |
+| `test_parse_salary_range_with_k`                         | `parse_salary("1K - 3K per Annum")` → same error                                   |
+| `test_parse_salary_real_feed_formats[£31K per Annum]`   | K suffix, different amount                                                            |
+| `test_parse_salary_real_feed_formats[2 - 3 per Annum]`   | Range without £ or K                                                                 |
+| `test_parse_salary_real_feed_formats[15 - 17 per Annum]` | Range without currency symbols                                                        |
+| `test_parse_salary_real_feed_formats[$2 per Annum]`      | Dollar sign instead of pound                                                          |
+| `test_parse_salary_real_feed_formats[00-14]`             | Hyphenated format with no meaningful value                                            |
+| `test_normalise_missing_scraped_has_sli_entry`           | `except Exception: pass` — row is silently lost, nothing is written to the SLI log |
 
 **Root cause:** `parse_salary` does `int(str(value).replace("£","").replace(",",""))` — does not handle suffixes, ranges, or foreign currency symbols.
 
@@ -375,8 +386,8 @@ The worker **works** — architecture and contracts are correct. But `resolve_jo
 
 ## `drop_duplicate_jobs` — 1 test
 
-| Test | Reason for failure |
-| ---- | ------------------ |
+| Test                                                          | Reason for failure                                                                                                  |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `test_dedup_different_job_ids_same_title_company_both_kept` | Key `title\|company` — two different jobs in different cities with the same title and company are merged into one |
 
 **Root cause:** `dedupe_key` should use `job_id`, not `title|company`.
@@ -385,19 +396,19 @@ The worker **works** — architecture and contracts are correct. But `resolve_jo
 
 ## `resolve_job_town` — 11 tests
 
-| Test | Reason for failure |
-| ---- | ------------------ |
-| `test_resolve_location_with_country_suffix` | `"Birmingham, United Kingdom"` → `lookup_town` performs exact match, suffix not stripped (555 jobs) |
-| `test_resolve_location_with_gb_suffix` | `"Bolton, GB"` — same, country-code suffix (12 jobs) |
-| `test_resolve_crewe_not_in_towns` | `"Crewe"` — real city, but not in the `TOWNS` dictionary |
-| `test_resolve_location_placeholder_fallback` | `"2 Locations"` — placeholder, `structured_job.locations` is never checked (337 jobs) |
-| `test_resolve_three_part_location[Derby, Derbyshire, ...]` | Three-part format: suffix + county not stripped |
-| `test_resolve_three_part_location[Chester, Cheshire, ...]` | Same |
-| `test_resolve_three_part_location[Bradford, West Yorkshire, ...]` | Same |
-| `test_resolve_three_part_location[Birmingham, Warwickshire, ...]` | Same |
-| `test_resolve_three_part_location[Glasgow, Glasgow City, ...]` | Same |
-| `test_resolve_hybrid_remote_formats[Hybrid - 2 days Warrington]` | Embedded city not extracted from hybrid string |
-| `test_resolve_hybrid_remote_formats[Remote - UK]` | Remote location type not handled at all |
+| Test                                                                | Reason for failure                                                                                       |
+| ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `test_resolve_location_with_country_suffix`                       | `"Birmingham, United Kingdom"` → `lookup_town` performs exact match, suffix not stripped (555 jobs) |
+| `test_resolve_location_with_gb_suffix`                            | `"Bolton, GB"` — same, country-code suffix (12 jobs)                                                  |
+| `test_resolve_crewe_not_in_towns`                                 | `"Crewe"` — real city, but not in the `TOWNS` dictionary                                            |
+| `test_resolve_location_placeholder_fallback`                      | `"2 Locations"` — placeholder, `structured_job.locations` is never checked (337 jobs)               |
+| `test_resolve_three_part_location[Derby, Derbyshire, ...]`        | Three-part format: suffix + county not stripped                                                          |
+| `test_resolve_three_part_location[Chester, Cheshire, ...]`        | Same                                                                                                     |
+| `test_resolve_three_part_location[Bradford, West Yorkshire, ...]` | Same                                                                                                     |
+| `test_resolve_three_part_location[Birmingham, Warwickshire, ...]` | Same                                                                                                     |
+| `test_resolve_three_part_location[Glasgow, Glasgow City, ...]`    | Same                                                                                                     |
+| `test_resolve_hybrid_remote_formats[Hybrid - 2 days Warrington]`  | Embedded city not extracted from hybrid string                                                           |
+| `test_resolve_hybrid_remote_formats[Remote - UK]`                 | Remote location type not handled at all                                                                  |
 
 **Root cause:** `lookup_town` only does `TOWNS.get(text.strip().lower())` — a single exact match with no format parsing.
 
@@ -405,22 +416,22 @@ The worker **works** — architecture and contracts are correct. But `resolve_jo
 
 ## `match_jobs` — 14 tests
 
-| Test | Reason for failure |
-| ---- | ------------------ |
-| `test_matched_titles_case_insensitive` | `"controls engineer" in "Controls Engineer"` → `False` |
-| `test_matched_titles_lowercase_profile_title` | `"cnc miller" in "CNC Miller"` → `False` |
-| `test_matched_titles_non_adjacent_words` | `"Quality Engineer" in "Quality and Warranty Engineer"` → `False` |
-| `test_matched_titles_case_real_feed[Business Development Manager]` | Profile: `"business development manager"`, feed: `"Business Development Manager"` |
-| `test_matched_titles_case_real_feed[Business Development Manager - North]` | Same + suffix |
-| `test_matched_titles_case_real_feed[CNC Turner Setter/Programmer ...]` | Profile: `"cnc turner"`, feed: `"CNC Turner Setter/..."` |
-| `test_matched_titles_word_order_real_feed[Engineer - Electrical ...]` | Words `"Electrical"` and `"Engineer"` are present but not adjacent |
-| `test_matched_titles_word_order_real_feed[Sr. Applications Engineer - Electrical]` | Same |
-| `test_matched_titles_word_order_real_feed[PSV / HGV Engineer ... / Electrical Engineer]` | Same |
-| `test_matched_titles_word_order_real_feed[PSV / HGV Engineer ... / Mechanical Engineer]` | Same |
-| `test_matched_titles_word_order_real_feed[Manufacturing Services Technician ...]` | `"Manufacturing Technician"` — words not adjacent |
-| `test_matched_titles_word_order_real_feed[Principal Engineer - Product Safety]` | `"Product Engineer"` — words not adjacent |
-| `test_matched_titles_word_order_real_feed[Highways Engineer – Design ...]` | `"Design Engineer"` — words not adjacent |
-| `test_match_jobs_company_legal_suffix_stripped` | `"Cobalt Zephyr Holdings"` ≠ `"Cobalt Zephyr"` — exact string comparison |
+| Test                                                                                       | Reason for failure                                                                    |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- |
+| `test_matched_titles_case_insensitive`                                                   | `"controls engineer" in "Controls Engineer"` → `False`                           |
+| `test_matched_titles_lowercase_profile_title`                                            | `"cnc miller" in "CNC Miller"` → `False`                                         |
+| `test_matched_titles_non_adjacent_words`                                                 | `"Quality Engineer" in "Quality and Warranty Engineer"` → `False`                |
+| `test_matched_titles_case_real_feed[Business Development Manager]`                       | Profile: `"business development manager"`, feed: `"Business Development Manager"` |
+| `test_matched_titles_case_real_feed[Business Development Manager - North]`               | Same + suffix                                                                         |
+| `test_matched_titles_case_real_feed[CNC Turner Setter/Programmer ...]`                   | Profile: `"cnc turner"`, feed: `"CNC Turner Setter/..."`                          |
+| `test_matched_titles_word_order_real_feed[Engineer - Electrical ...]`                    | Words `"Electrical"` and `"Engineer"` are present but not adjacent                |
+| `test_matched_titles_word_order_real_feed[Sr. Applications Engineer - Electrical]`       | Same                                                                                  |
+| `test_matched_titles_word_order_real_feed[PSV / HGV Engineer ... / Electrical Engineer]` | Same                                                                                  |
+| `test_matched_titles_word_order_real_feed[PSV / HGV Engineer ... / Mechanical Engineer]` | Same                                                                                  |
+| `test_matched_titles_word_order_real_feed[Manufacturing Services Technician ...]`        | `"Manufacturing Technician"` — words not adjacent                                  |
+| `test_matched_titles_word_order_real_feed[Principal Engineer - Product Safety]`          | `"Product Engineer"` — words not adjacent                                          |
+| `test_matched_titles_word_order_real_feed[Highways Engineer – Design ...]`              | `"Design Engineer"` — words not adjacent                                           |
+| `test_match_jobs_company_legal_suffix_stripped`                                          | `"Cobalt Zephyr Holdings"` ≠ `"Cobalt Zephyr"` — exact string comparison        |
 
 **Root cause:** `matched_titles` does `t in job_title` — case-sensitive substring, but the spec requires that all words of the profile title appear in the job title in any order.
 
@@ -428,6 +439,6 @@ The worker **works** — architecture and contracts are correct. But `resolve_jo
 
 ## `test_labelled_sample` — 1 test
 
-| Test | Reason for failure |
-| ---- | ------------------ |
+| Test                                         | Reason for failure                                                                                                                                              |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `test_v1_pipeline_recall_above_50_percent` | v1 finds **0 of 11** YES jobs: 10 rejected in `resolve_job_town` (UNKNOWN_LOCATION), 1 (J685745) in `match_jobs` (NO_TITLE_MATCH). Recall = 0% < 50%. |

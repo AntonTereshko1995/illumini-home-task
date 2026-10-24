@@ -1,0 +1,607 @@
+=== PROFILE A ===
+Companies (408): ['Aire Calder', 'Aire Driftwood', 'Aire Foxhall', 'Aire Northwind', 'Aire Oakfield', 'Aire Viaduct', 'Aire Wharfedale Engineering', 'Ancoats Castlefield', 'Ancoats Cobalt', 'Ancoats Greystone', 'Ancoats Inkwell', 'Ancoats Lowther', 'Ancoats Mersey', 'Ancoats Northwind', 'Ancoats Riverside Technology Ltd.', 'Ancoats Saltaire Engineering', 'Ancoats Upland', 'Ashworth Castlefield Group', 'Ashworth Driftwood Systems', 'Ashworth Elmstone', 'Ashworth Fellgate Engineering', 'Ashworth Foxhall', 'Ashworth Tidewater Technologies', 'Ashworth Yarrow UK', 'Beacon Aire', 'Beacon Elmstone', 'Beacon Kestrel Group', 'Beacon Pennine Solutions', 'Beacon Upland', 'Brightwater Ancoats', 'Brightwater Driftwood', 'Brightwater Fellgate Group', 'Brightwater Granary', 'Brightwater Halden', 'Brightwater Hollins', 'Brightwater Lowther', 'Brightwater Netherby', 'Brightwater Northwind', 'Brightwater Thornbury The Group', 'Brightwater Zephyr', 'Brindley Oakfield', 'Brindley Quayside', 'Calder Ashworth', 'Calder Delta North International', 'Calder Elmstone Engineering', 'Calder Halden', 'Calder Harbourline', 'Calder Inkwell Group', 'Calder Ironbridge Group', 'Calder Millrace', 'Calder Netherby Technologies', 'Calder Oakfield Group', 'Calder Thornbury', 'Castlefield Elmstone', 'Castlefield Kingsway ENGINEERING LTD', 'Castlefield Larkspur', 'Castlefield Mersey', 'Castlefield Millrace Systems', 'Castlefield Pennine', 'Castlefield Riverside', 'Castlefield Stonebridge', 'Castlefield Upland', 'Cobalt Calder', 'Cobalt Irwell', 'Cobalt Kestrel', 'Cobalt Upland Systems', 'Cobalt Zephyr', 'Copperleaf Aire Group', 'Copperleaf Brightwater', 'Copperleaf Calder', 'Copperleaf Fellgate', 'Copperleaf Greystone', 'Copperleaf Hollins', 'Copperleaf Ironbridge Engineering Services', 'Copperleaf Irwell UK', 'Copperleaf Larkspur', 'Copperleaf Larkspur UK', 'Copperleaf Lowther', 'Copperleaf Netherby Group', 'Copperleaf Redrose Engineering', 'Delta North Beacon', 'Delta North Driftwood', 'Delta North Halden', 'Delta North Lowther', 'Delta North Oakfield', 'Delta North Saltaire Engineering', 'Delta North Tidewater', 'Delta North Whiterose', 'Driftwood Brightwater', 'Driftwood Cobalt Services', 'Driftwood Copperleaf', 'Driftwood Delta North', 'Driftwood Elmstone', 'Driftwood Ember Ltd', 'Driftwood Granary', 'Driftwood Hollins', 'Driftwood Quayside', 'Driftwood Ribble', 'Elmstone Aire', 'Elmstone Castlefield', 'Elmstone Copperleaf', 'Elmstone Delta North', 'Elmstone Driftwood', 'Elmstone Ember', 'Elmstone Irwell Solutions', 'Elmstone Kestrel', 'Elmstone Ribble', 'Elmstone Tidewater', 'Elmstone Viaduct Technologies', 'Elmstone Whiterose', 'Elmstone Zephyr Engineering', 'Ember Copperleaf', 'Ember Northwind', 'Ember Oakfield The Company', 'Fellgate Brindley UK Ltd', 'Fellgate Calder International', 'Fellgate Cobalt', 'Fellgate Ember Holdings', 'Fellgate Greystone Systems', 'Fellgate Irwell', 'Fellgate Kestrel Engineering Group', 'Fellgate Redrose', 'Fellgate Wharfedale', 'Fellgate Whiterose', 'Foxhall Brindley', 'Foxhall Castlefield', 'Foxhall Greystone', 'Foxhall Hollins', 'Foxhall Ironbridge', 'Foxhall Larkspur', 'Foxhall Mersey', 'Foxhall Millrace', 'Foxhall Redrose', 'Foxhall Thornbury Group Ltd', 'Foxhall Wharfedale', 'Foxhall Whiterose', 'Granary Aire', 'Granary Calder', 'Granary Greystone', 'Granary Harbourline Technologies', 'Granary Inkwell', 'Granary Irwell', 'Granary Netherby Engineering', 'Granary Tidewater', 'Granary Whiterose', 'Granary Yarrow Group', 'Greystone Ashworth Engineering', 'Greystone Delta North', 'Greystone Elmstone', 'Greystone Harbourline Technologies', 'Greystone Inkwell', 'Greystone Ironbridge International Services', 'Greystone Pennine', 'Greystone Wharfedale', 'Halden Aire The Group', 'Halden Brindley', 'Halden Castlefield UK', 'Halden Delta North', 'Halden Driftwood', 'Halden Irwell', 'Halden Kestrel', 'Halden Mersey', 'Halden Thornbury', 'Halden Tidewater Systems', 'Harbourline Halden', 'Harbourline Moorside', 'Harbourline Saltaire', 'Hollins Brightwater', 'Hollins Delta North Group', 'Hollins Foxhall Systems Ltd', 'Hollins Harbourline', 'Hollins Inkwell UK', 'Hollins Millrace', 'Hollins Oakfield', 'Hollins Saltaire', 'Hollins Upland Ltd', 'Inkwell Copperleaf Group', 'Inkwell Driftwood', 'Inkwell Ironbridge', 'Inkwell Juniper', 'Inkwell Larkspur Systems', 'Inkwell Moorside Technology', 'Inkwell Thornbury', 'Ironbridge Delta North', 'Ironbridge Ember', 'Ironbridge Granary', 'Ironbridge Kingsway UK', 'Ironbridge Larkspur', 'Ironbridge Lowther', 'Ironbridge Mersey', 'Ironbridge Netherby', 'Ironbridge Saltaire', 'Irwell Cobalt', 'Irwell Driftwood', 'Irwell Elmstone', 'Irwell Foxhall', 'Irwell Inkwell', 'Irwell Juniper International', 'Irwell Kestrel Group', 'Irwell Redrose', 'Irwell Upland', 'Irwell Yarrow', 'Juniper Elmstone', 'Juniper Halden', 'Juniper Inkwell Systems', 'Juniper Moorside Engineering', 'Juniper Pennine Group', 'Juniper Thornbury', 'Juniper Upland Technology', 'Kestrel Ashworth', 'Kestrel Copperleaf', 'Kestrel Ember Group', 'Kestrel Halden Ltd', 'Kestrel Irwell', 'Kestrel Larkspur', 'Kestrel Moorside', 'Kestrel Saltaire Services', 'Kestrel Viaduct', 'Kestrel Whiterose', 'Kestrel Yarrow', 'Kingsway Fellgate', 'Kingsway Inkwell', 'Kingsway Irwell Group', 'Kingsway Kestrel Group', 'Kingsway Larkspur', 'Kingsway Northwind', 'Kingsway Pennine', 'Kingsway Ribble', 'Kingsway Riverside', 'Larkspur Ancoats Engineering Ltd', 'Larkspur Elmstone Engineering', 'Larkspur Granary', 'Larkspur Hollins Engineering', 'Larkspur Irwell', 'Larkspur Whiterose', 'Lowther Ancoats LIMITED', 'Lowther Brindley', 'Lowther Driftwood', 'Lowther Greystone International', 'Lowther Halden Group', 'Lowther Ironbridge', 'Lowther Juniper UK', 'Lowther Millrace', 'Lowther Moorside', 'Lowther Ribble Technologies', 'Lowther Viaduct Technologies', 'Lowther Yarrow', 'Mersey Beacon International', 'Mersey Brightwater', 'Mersey Brindley', 'Mersey Delta North Group Holdings', 'Mersey Fellgate Engineering', 'Mersey Irwell', 'Mersey Kestrel International', 'Mersey Moorside', 'Mersey Oakfield UK', 'Mersey Redrose', 'Mersey Saltaire', 'Mersey Yarrow Technologies', 'Mersey Zephyr Group', 'Millrace Ashworth Engineering', 'Millrace Castlefield', 'Millrace Copperleaf', 'Millrace Hollins', 'Millrace Saltaire Ltd', 'Millrace Whiterose', 'Moorside Copperleaf', 'Moorside Greystone The Group', 'Moorside Kingsway', 'Moorside Netherby', 'Moorside Oakfield', 'Moorside Wharfedale', 'Netherby Ashworth Services', 'Netherby Beacon LIMITED', 'Netherby Brindley', 'Netherby Calder Engineering', 'Netherby Fellgate', 'Netherby Halden', 'Netherby Kestrel Group', 'Netherby Lowther', 'Netherby Whiterose', 'Northwind Delta North', 'Northwind Driftwood', 'Northwind Foxhall', 'Northwind Netherby', 'Oakfield Calder', 'Oakfield Driftwood Engineering', 'Oakfield Elmstone LIMITED', 'Oakfield Ember', 'Oakfield Foxhall', 'Oakfield Halden Group', 'Oakfield Irwell', 'Oakfield Lowther', 'Pennine Elmstone', 'Pennine Irwell', 'Pennine Kingsway Ltd.', 'Pennine Lowther Solutions', 'Pennine Mersey', 'Quayside Ashworth Services International Group', 'Quayside Beacon', 'Quayside Calder', 'Quayside Cobalt International Ltd.', 'Quayside Northwind Group', 'Quayside Ribble', 'Redrose Ancoats The', 'Redrose Copperleaf Systems', 'Redrose Harbourline', 'Redrose Mersey Engineering', 'Redrose Stonebridge', 'Ribble Granary Engineering', 'Ribble Riverside', 'Ribble Wharfedale', 'Riverside Brindley', 'Riverside Driftwood', 'Riverside Lowther', 'Riverside Saltaire', 'Saltaire Brindley', 'Saltaire Calder', 'Saltaire Granary Engineering', 'Saltaire Ironbridge', 'Saltaire Juniper', 'Saltaire Kestrel', 'Saltaire Moorside Engineering', 'Saltaire Northwind Engineering', 'Saltaire Pennine ltd', 'Saltaire Redrose', 'Saltaire Ribble', 'Saltaire Stonebridge', 'Saltaire Thornbury', 'Stonebridge Ancoats', 'Stonebridge Cobalt', 'Stonebridge Delta North', 'Stonebridge Elmstone', 'Stonebridge Ember', 'Stonebridge Juniper', 'Stonebridge Kestrel', 'Stonebridge Kingsway', 'Stonebridge Larkspur', 'Stonebridge Millrace', 'Stonebridge Northwind Services', 'Stonebridge Wharfedale', 'Thornbury Cobalt Engineering', 'Thornbury Granary', 'Thornbury Hollins', 'Thornbury Inkwell', 'Tidewater Ashworth', 'Tidewater Beacon UK', 'Tidewater Driftwood', 'Tidewater Elmstone', 'Tidewater Fellgate Services Ltd', 'Tidewater Foxhall', 'Tidewater Harbourline', 'Tidewater Juniper Engineering', 'Tidewater Lowther', 'Tidewater Netherby International', 'Tidewater Oakfield', 'Tidewater Quayside', 'Upland Aire', 'Upland Brightwater', 'Upland Calder', 'Upland Copperleaf Solutions', 'Upland Larkspur', 'Upland Millrace', 'Upland Moorside Group', 'Upland Netherby', 'Upland Northwind', 'Upland Oakfield', 'Upland Redrose UK', 'Upland Thornbury (Holdings)', 'Viaduct Driftwood Group', 'Viaduct Fellgate', 'Viaduct Granary', 'Viaduct Halden', 'Viaduct Larkspur Solutions', 'Viaduct Thornbury Systems', 'Wharfedale Ashworth', 'Wharfedale Castlefield', 'Wharfedale Larkspur GmbH', 'Wharfedale Millrace', 'Wharfedale Netherby Engineering', 'Wharfedale Northwind Co. Ltd', 'Wharfedale Pennine', 'Wharfedale Riverside', 'Wharfedale Stonebridge Engineering', 'Wharfedale Thornbury Engineering', 'Wharfedale Tidewater', 'Wharfedale Upland', 'Wharfedale Viaduct UK', 'Wharfedale Yarrow', 'Whiterose Beacon Systems', 'Whiterose Brindley Services', 'Whiterose Kestrel Engineering Services', 'Whiterose Kingsway Holdings Limited', 'Whiterose Millrace', 'Whiterose Quayside Engineering', 'Whiterose Wharfedale', 'Yarrow Aire UK Group', 'Yarrow Brightwater', 'Yarrow Castlefield', 'Yarrow Cobalt', 'Yarrow Halden', 'Yarrow Harbourline', 'Yarrow Hollins', 'Yarrow Irwell', 'Zephyr Cobalt Company', 'Zephyr Driftwood Services', 'Zephyr Millrace', 'Zephyr Viaduct UK']
+Titles (57): ['Automation Engineer', 'business development manager', 'Business Operations Manager', 'CAD Technician', 'cnc miller', 'CNC Operator', 'CNC Setter', 'cnc turner', 'Commissioning Engineer', 'Continuous Improvement Engineer', 'Controls Engineer', 'Demand Planner', 'Design Engineer', 'Electrical Engineer', 'fabricator welder', 'Facilities Engineer', 'Field Service Engineer', 'Industrial Engineer', 'Lean Manufacturing Engineer', 'Logistics Manager', 'Maintenance Engineer', 'maintenance planner', 'Maintenance Technician', 'Manufacturing Engineer', 'Manufacturing Technician', 'Manufacturing Technologist', 'Mechanical Engineer', 'mig welder', 'Operations Coordinator', 'Operations Engineer', 'Operations Manager', 'Operations Planner', 'paint sprayer', 'Plant Engineer', 'Plant Operations Manager', 'Precision Engineer', 'Process Engineer', 'Process Manager', 'Process Technician', 'Process Technologist', 'Procurement Specialist', 'Product Engineer', 'Production Engineer', 'Production Planner', 'production team leader', 'Quality Assurance Engineer', 'Quality Engineer', 'Quality Technician', 'Reliability Engineer', 'Scheduling Analyst', 'Supply Chain Engineer', 'Supply Chain Planner', 'Systems Engineer', 'Technical Drafter', 'Technical Support Engineer', 'tig welder', 'tool maker']
+Locations (12): [('West Midlands', ['Birmingham', 'Coventry', 'Wolverhampton']), ('Manchester', ['Manchester']), ('Wirral', []), ('Skelmersdale', ['Skelmersdale', 'Wigan', 'Ormskirk', 'Prescot', 'St Helens', 'Rainhill', 'Rainford', 'Upholland', 'Burscough', 'Crosby', 'Formby', 'Southport']), ('North Wales', ['Bangor', 'Wrexham', 'Caernarfon', 'Conwy', 'Llandudno', 'Colwyn Bay', 'Rhyl', 'Prestatyn', 'Aberystwyth', 'Dolgellau', 'Porthmadog', 'Caerphilly', 'Merthyr Tydfil', 'Pontypridd']), ('Liverpool', ['Liverpool']), ('M62 Corridor', ['Manchester', 'Liverpool', 'Salford', 'Stockport', 'Wigan', 'St Helens', 'Warrington', 'Bolton', 'Ashton-under-Lyne', 'Oldham', 'Rochdale', 'Runcorn', 'Widnes', 'Leigh', 'Bury', 'Eccles', 'Altrincham', 'Sale', 'Trafford Park', 'Irlam']), ('Runcorn', ['Runcorn', 'Widnes', 'Warrington', 'Chester', 'Northwich', 'Frodsham', 'Halton', 'Ellesmere Port', 'Stockport', 'Altrincham']), ('Warrington', ['Warrington', 'Runcorn', 'Widnes', 'Stockton Heath', 'Frodsham', 'Northwich', 'Knutsford', 'Altrincham', 'Sale', 'Irlam', 'Ashton-under-Lyne', 'Stalybridge', 'Wilmslow', 'Bowdon']), ('North West England', ['Manchester', 'Liverpool', 'Preston', 'Bolton', 'Wigan', 'Stockport', 'Oldham', 'Rochdale', 'Salford', 'Tameside', 'Bury', 'Blackburn', 'Blackpool', 'Burnley', 'Lancaster', 'Carlisle', 'Kendal', 'Barrow-in-Furness', 'Penrith', 'Crewe', 'Warrington', 'Northwich', 'Runcorn']), ('Lancashire', ['Blackburn', 'Burnley', 'Lancaster', 'Preston']), ('Remote (UK)', ['Remote', 'Home-based', 'Work from home'])]
+
+=== FEED COMPANIES THAT PARTIALLY MATCH PROFILE (but fail exact check) ===
+
+  Profile: 'delta north saltaire engineering'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Saltaire Moorside Engineering'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+
+  Profile: 'calder elmstone engineering'
+    feed: 'Larkspur Elmstone Engineering'
+
+  Profile: 'calder delta north international'
+    feed: 'Fellgate Calder International'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+
+  Profile: 'greystone delta north'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+
+  Profile: 'irwell yarrow'
+    feed: 'Yarrow Irwell'
+
+  Profile: 'thornbury cobalt engineering'
+    feed: 'Wharfedale Thornbury Engineering'
+
+  Profile: 'tidewater elmstone'
+    feed: 'Elmstone Tidewater'
+
+  Profile: 'oakfield ember'
+    feed: 'Ember Oakfield The Company'
+
+  Profile: 'zephyr viaduct uk'
+    feed: 'Wharfedale Viaduct UK'
+
+  Profile: 'kingsway pennine'
+    feed: 'Pennine Kingsway Ltd.'
+
+  Profile: 'elmstone delta north'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+    feed: 'Delta North Quayside'
+
+  Profile: 'driftwood ember ltd'
+    feed: 'Ember Driftwood UK'
+    feed: 'Larkspur Driftwood Group Ltd.'
+
+  Profile: 'tidewater juniper engineering'
+    feed: 'Juniper Tidewater'
+
+  Profile: 'elmstone tidewater'
+    feed: 'Tidewater Elmstone'
+
+  Profile: 'irwell kestrel group'
+    feed: 'Beacon Kestrel Group'
+    feed: 'Netherby Kestrel Group'
+    feed: 'Kingsway Irwell Group'
+    feed: 'Irwell Riverside Group LTD.'
+
+  Profile: 'quayside cobalt international ltd.'
+    feed: 'Elmstone Cobalt Services (UK) Ltd'
+    feed: 'Quayside Ashworth Services International Group'
+
+  Profile: 'millrace hollins'
+    feed: 'Hollins Millrace'
+
+  Profile: 'ironbridge mersey'
+    feed: 'Mersey Ironbridge'
+
+  Profile: 'copperleaf netherby group'
+    feed: 'Lowther Copperleaf Group'
+    feed: 'Netherby Kestrel Group'
+    feed: 'Inkwell Copperleaf Group'
+
+  Profile: 'lowther greystone international'
+    feed: 'Greystone Ironbridge International Services'
+    feed: 'Lowther Greystone'
+
+  Profile: 'copperleaf larkspur'
+    feed: 'Copperleaf Larkspur UK'
+
+  Profile: 'castlefield kingsway engineering ltd'
+    feed: 'Pennine Kingsway Ltd.'
+
+  Profile: 'millrace ashworth engineering'
+    feed: 'Greystone Ashworth Engineering'
+
+  Profile: 'stonebridge delta north'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+    feed: 'Delta North Quayside'
+
+  Profile: 'ashworth castlefield group'
+    feed: 'Quayside Ashworth Services International Group'
+
+  Profile: 'lowther juniper uk'
+    feed: 'Hollins Lowther UK'
+
+  Profile: 'copperleaf lowther'
+    feed: 'Lowther Copperleaf Group'
+
+  Profile: 'granary harbourline technologies'
+    feed: 'Greystone Harbourline Technologies'
+
+  Profile: 'quayside ribble'
+    feed: 'Ribble Quayside The Group'
+
+  Profile: 'tidewater ashworth'
+    feed: 'Ashworth Tidewater Technologies'
+
+  Profile: 'delta north lowther'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+
+  Profile: 'netherby calder engineering'
+    feed: 'Calder Netherby Technologies'
+
+  Profile: 'zephyr cobalt company'
+    feed: 'Cobalt Zephyr Holdings'
+    feed: 'Cobalt Zephyr'
+
+  Profile: 'driftwood cobalt services'
+    feed: 'Elmstone Cobalt Services (UK) Ltd'
+    feed: 'Zephyr Driftwood Services'
+
+  Profile: 'cobalt zephyr'
+    feed: 'Cobalt Zephyr Holdings'
+
+  Profile: 'viaduct driftwood group'
+    feed: 'Larkspur Driftwood Group Ltd.'
+
+  Profile: 'kestrel ember group'
+    feed: 'Beacon Kestrel Group'
+    feed: 'Netherby Kestrel Group'
+
+  Profile: 'larkspur hollins engineering'
+    feed: 'Larkspur Elmstone Engineering'
+
+  Profile: 'juniper elmstone'
+    feed: 'Elmstone Juniper'
+
+  Profile: 'netherby kestrel group'
+    feed: 'Beacon Kestrel Group'
+    feed: 'Kestrel Netherby Technologies'
+    feed: 'Copperleaf Netherby Group'
+
+  Profile: 'upland moorside group'
+    feed: 'Moorside Upland'
+
+  Profile: 'oakfield halden group'
+    feed: 'Calder Oakfield Group'
+
+  Profile: 'ancoats riverside technology ltd.'
+    feed: 'Ancoats Aire LTD'
+    feed: 'Ancoats Delta North UK Ltd'
+    feed: 'Irwell Riverside Group LTD.'
+
+  Profile: 'delta north whiterose'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+
+  Profile: 'fellgate kestrel engineering group'
+    feed: 'Beacon Kestrel Group'
+    feed: 'Fellgate Larkspur Group'
+    feed: 'Brightwater Fellgate Group'
+    feed: 'Netherby Kestrel Group'
+    feed: 'Kestrel Ribble Engineering'
+    feed: 'Fellgate Saltaire Group'
+
+  Profile: 'saltaire granary engineering'
+    feed: 'Saltaire Moorside Engineering'
+    feed: 'Ribble Granary Engineering'
+
+  Profile: 'halden delta north'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+
+  Profile: 'fellgate brindley uk ltd'
+    feed: 'Elmstone Cobalt Services (UK) Ltd'
+    feed: 'Ancoats Delta North UK Ltd'
+
+  Profile: 'delta north oakfield'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+
+  Profile: 'copperleaf larkspur uk'
+    feed: 'Copperleaf Larkspur'
+
+  Profile: 'yarrow halden'
+    feed: 'Halden Yarrow'
+
+  Profile: 'wharfedale stonebridge engineering'
+    feed: 'Wharfedale Thornbury Engineering'
+
+  Profile: 'irwell cobalt'
+    feed: 'Cobalt Irwell'
+
+  Profile: 'greystone ironbridge international services'
+    feed: 'Quayside Ashworth Services International Group'
+    feed: 'Lowther Greystone International'
+
+  Profile: 'delta north beacon'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+
+  Profile: 'quayside ashworth services international group'
+    feed: 'Greystone Ironbridge International Services'
+    feed: 'Ribble Quayside The Group'
+
+  Profile: 'hollins inkwell uk'
+    feed: 'Hollins Lowther UK'
+
+  Profile: 'moorside greystone the group'
+    feed: 'Ribble Quayside The Group'
+    feed: 'The Aire Northwind Group plc'
+    feed: 'Brightwater Thornbury The Group'
+    feed: 'Greystone Mersey Group'
+
+  Profile: 'mersey delta north group holdings'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Mersey Zephyr Group'
+    feed: 'Saltaire Delta North'
+
+  Profile: 'mersey zephyr group'
+    feed: 'Brindley Zephyr Group'
+    feed: 'Greystone Mersey Group'
+
+  Profile: 'hollins foxhall systems ltd'
+    feed: 'Foxhall Hollins'
+    feed: 'Foxhall Pennine SYSTEMS'
+    feed: 'Hollins Upland Ltd'
+    feed: 'Foxhall Harbourline Ltd.'
+
+  Profile: 'ribble riverside'
+    feed: 'Riverside Ribble Systems'
+
+  Profile: 'tidewater fellgate services ltd'
+    feed: 'Elmstone Cobalt Services (UK) Ltd'
+
+  Profile: 'whiterose millrace'
+    feed: 'Millrace Whiterose'
+
+  Profile: 'castlefield larkspur'
+    feed: 'Larkspur Castlefield'
+
+  Profile: 'fellgate calder international'
+    feed: 'Aire Calder International Holdings Limited'
+    feed: 'Calder Delta North International'
+
+  Profile: 'wharfedale thornbury engineering'
+    feed: 'Thornbury Cobalt Engineering'
+
+  Profile: 'ribble granary engineering'
+    feed: 'Kestrel Ribble Engineering'
+
+  Profile: 'wharfedale netherby engineering'
+    feed: 'Wharfedale Thornbury Engineering'
+
+  Profile: 'pennine kingsway ltd.'
+    feed: 'Kingsway Pennine'
+
+  Profile: 'halden aire the group'
+    feed: 'Yarrow Aire UK Group'
+    feed: 'Ribble Quayside The Group'
+    feed: 'Oakfield Halden Group'
+    feed: 'The Aire Northwind Group plc'
+    feed: 'Brightwater Thornbury The Group'
+
+  Profile: 'ancoats lowther'
+    feed: 'Lowther Ancoats LIMITED'
+
+  Profile: 'granary netherby engineering'
+    feed: 'Ribble Granary Engineering'
+
+  Profile: 'copperleaf ironbridge engineering services'
+    feed: 'Greystone Ironbridge International Services'
+
+  Profile: 'copperleaf aire group'
+    feed: 'Yarrow Aire UK Group'
+    feed: 'Lowther Copperleaf Group'
+    feed: 'Copperleaf Netherby Group'
+    feed: 'The Aire Northwind Group plc'
+    feed: 'Inkwell Copperleaf Group'
+
+  Profile: 'foxhall hollins'
+    feed: 'Hollins Foxhall Systems Ltd'
+
+  Profile: 'aire calder'
+    feed: 'Aire Calder International Holdings Limited'
+
+  Profile: 'ironbridge larkspur'
+    feed: 'Larkspur Ironbridge'
+
+  Profile: 'foxhall thornbury group ltd'
+    feed: 'Hollins Foxhall Systems Ltd'
+    feed: 'Ancoats Thornbury GROUP'
+    feed: 'Larkspur Driftwood Group Ltd.'
+    feed: 'Brightwater Thornbury The Group'
+    feed: 'Irwell Riverside Group LTD.'
+    feed: 'Foxhall Harbourline Ltd.'
+
+  Profile: 'brightwater fellgate group'
+    feed: 'Saltaire Brightwater Group'
+    feed: 'Fellgate Larkspur Group'
+    feed: 'Fellgate Saltaire Group'
+    feed: 'Brightwater Thornbury The Group'
+
+  Profile: 'wharfedale viaduct uk'
+    feed: 'Zephyr Viaduct UK'
+
+  Profile: 'pennine lowther solutions'
+    feed: 'Copperleaf Pennine Solutions'
+
+  Profile: 'juniper moorside engineering'
+    feed: 'Saltaire Moorside Engineering'
+
+  Profile: 'ashworth yarrow uk'
+    feed: 'Yarrow Aire UK Group'
+
+  Profile: 'yarrow aire uk group'
+    feed: 'Ashworth Yarrow UK'
+    feed: 'The Aire Northwind Group plc'
+    feed: 'Granary Yarrow Group'
+
+  Profile: 'millrace castlefield'
+    feed: 'Castlefield Millrace Systems'
+
+  Profile: 'saltaire brindley'
+    feed: 'Brindley Saltaire Group'
+
+  Profile: 'juniper pennine group'
+    feed: 'Ribble Pennine Group'
+
+  Profile: 'beacon kestrel group'
+    feed: 'Netherby Kestrel Group'
+    feed: 'Beacon Granary Group'
+
+  Profile: 'kingsway irwell group'
+    feed: 'Irwell Riverside Group LTD.'
+
+  Profile: 'inkwell thornbury'
+    feed: 'Thornbury Inkwell'
+
+  Profile: 'kingsway kestrel group'
+    feed: 'Beacon Kestrel Group'
+    feed: 'Netherby Kestrel Group'
+    feed: 'Kingsway Irwell Group'
+
+  Profile: 'lowther halden group'
+    feed: 'Lowther Copperleaf Group'
+    feed: 'Oakfield Halden Group'
+
+  Profile: 'northwind delta north'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+
+  Profile: 'elmstone zephyr engineering'
+    feed: 'Larkspur Elmstone Engineering'
+
+  Profile: 'brightwater thornbury the group'
+    feed: 'Saltaire Brightwater Group'
+    feed: 'Brightwater Fellgate Group'
+    feed: 'Ribble Quayside The Group'
+    feed: 'Ancoats Thornbury GROUP'
+    feed: 'The Aire Northwind Group plc'
+
+  Profile: 'lowther viaduct technologies'
+    feed: 'Elmstone Viaduct Technologies'
+
+  Profile: 'aire northwind'
+    feed: 'The Aire Northwind Group plc'
+
+  Profile: 'oakfield calder'
+    feed: 'Calder Oakfield Group'
+
+  Profile: 'ironbridge kingsway uk'
+    feed: 'Kingsway Harbourline Solutions UK'
+
+  Profile: 'netherby ashworth services'
+    feed: 'Quayside Ashworth Services International Group'
+
+  Profile: 'delta north halden'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+
+  Profile: 'saltaire redrose'
+    feed: 'Redrose Saltaire'
+
+  Profile: 'copperleaf irwell uk'
+    feed: 'Copperleaf Larkspur UK'
+
+  Profile: 'aire wharfedale engineering'
+    feed: 'Wharfedale Thornbury Engineering'
+
+  Profile: 'hollins delta north group'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+
+  Profile: 'ancoats greystone'
+    feed: 'Ancoats Greystone Holdings'
+
+  Profile: 'castlefield millrace systems'
+    feed: 'Millrace Castlefield'
+
+  Profile: 'ancoats saltaire engineering'
+    feed: 'Saltaire Moorside Engineering'
+    feed: 'Ancoats Yarrow Engineering'
+
+  Profile: 'quayside northwind group'
+    feed: 'Ribble Quayside The Group'
+    feed: 'Quayside Ashworth Services International Group'
+    feed: 'The Aire Northwind Group plc'
+
+  Profile: 'calder ironbridge group'
+    feed: 'Calder Oakfield Group'
+    feed: 'Calder Inkwell Group'
+
+  Profile: 'calder netherby technologies'
+    feed: 'Kestrel Netherby Technologies'
+
+  Profile: 'calder inkwell group'
+    feed: 'Calder Oakfield Group'
+    feed: 'Inkwell Copperleaf Group'
+
+  Profile: 'whiterose kingsway holdings limited'
+    feed: 'Aire Calder International Holdings Limited'
+
+  Profile: 'saltaire northwind engineering'
+    feed: 'Saltaire Moorside Engineering'
+
+  Profile: 'upland copperleaf solutions'
+    feed: 'Copperleaf Pennine Solutions'
+
+  Profile: 'delta north tidewater'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+
+  Profile: 'ashworth fellgate engineering'
+    feed: 'Greystone Ashworth Engineering'
+
+  Profile: 'larkspur ancoats engineering ltd'
+    feed: 'Ancoats Aire LTD'
+    feed: 'Larkspur Driftwood Group Ltd.'
+    feed: 'Ancoats Yarrow Engineering'
+    feed: 'Ancoats Delta North UK Ltd'
+    feed: 'Larkspur Elmstone Engineering'
+    feed: 'Ancoats Riverside Technology Ltd.'
+
+  Profile: 'irwell upland'
+    feed: 'Upland Irwell'
+
+  Profile: 'ironbridge delta north'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+    feed: 'Delta North Quayside'
+
+  Profile: 'beacon pennine solutions'
+    feed: 'Pennine Lowther Solutions'
+    feed: 'Copperleaf Pennine Solutions'
+
+  Profile: 'calder oakfield group'
+    feed: 'Oakfield Halden Group'
+    feed: 'Calder Inkwell Group'
+
+  Profile: 'hollins upland ltd'
+    feed: 'Hollins Foxhall Systems Ltd'
+
+  Profile: 'inkwell copperleaf group'
+    feed: 'Lowther Copperleaf Group'
+    feed: 'Copperleaf Netherby Group'
+    feed: 'Calder Inkwell Group'
+
+  Profile: 'netherby beacon limited'
+    feed: 'Beacon Viaduct LIMITED'
+
+  Profile: 'whiterose kestrel engineering services'
+    feed: 'Kestrel Ribble Engineering'
+
+  Profile: 'driftwood brightwater'
+    feed: 'Brightwater Driftwood'
+
+  Profile: 'mersey fellgate engineering'
+    feed: 'Fellgate Mersey'
+
+  Profile: 'delta north driftwood'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Stonebridge Delta North'
+    feed: 'Driftwood Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+    feed: 'Delta North Quayside'
+
+  Profile: 'granary yarrow group'
+    feed: 'Yarrow Aire UK Group'
+    feed: 'Beacon Granary Group'
+
+  Profile: 'saltaire pennine ltd'
+    feed: 'Pennine Kingsway Ltd.'
+
+  Profile: 'whiterose beacon systems'
+    feed: 'Beacon Brightwater Systems'
+
+  Profile: 'driftwood delta north'
+    feed: 'Ironbridge Delta North'
+    feed: 'Brindley Delta North'
+    feed: 'Elmstone Delta North'
+    feed: 'Delta North Driftwood'
+    feed: 'Stonebridge Delta North'
+    feed: 'Saltaire Delta North'
+    feed: 'Ancoats Delta North UK Ltd'
+    feed: 'Delta North Quayside'
